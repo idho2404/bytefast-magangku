@@ -5,17 +5,16 @@
         <!-- Logo dan Nama -->
         <div class="flex items-center">
           <img class="h-12 w-auto" src="../assets/image/image.png" alt="Logo" />
-          <!-- <span class="text-purple-600 ml-2 font-semibold text-xl">FREEHL.TNK</span> -->
         </div>
 
         <!-- Menu Navigasi -->
         <div class="hidden sm:flex sm:space-x-8">
-          <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <router-link to="/" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Beranda
-          </a>
-          <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          </router-link>
+          <router-link to="/administrasi" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Administrasi
-          </a>
+          </router-link>
           <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Profil
           </a>

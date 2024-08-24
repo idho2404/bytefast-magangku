@@ -1,12 +1,12 @@
 <template>
   <div class="bg-white">
-    <Navbar />
-    <Beranda />
-    <!-- Konten lainnya bisa ditambahkan di sini -->
+    <router-view />
+    <!-- The router-view will render the component matched by the route -->
   </div>
 </template>
 
 <script setup>
-import Navbar from './components/Navbar.vue';
-import Beranda from './views/Beranda.vue';
 </script>
+
+<style>
+</style>
