@@ -18,9 +18,9 @@
           <router-link to="/berita" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Berita
           </router-link>
-          <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <router-link to="/profil" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Profil
-          </a>
+          </router-link>
           <div class="relative" @mouseleave="closeDropdown">
             <button @click="toggleDropdown" @mouseenter="openDropdown" type="button" class="text-gray-500 inline-flex items-center px-1 pt-1 text-sm font-medium hover:text-gray-700 focus:outline-none">
               Resources

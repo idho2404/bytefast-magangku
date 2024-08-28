@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Beranda from "../views/Beranda.vue";
 import AdministrasiPage from "../views/AdministrasiPage.vue";
 import Berita from "../views/Berita.vue"
+import Profil from "../views/Profil.vue"
 
 const routes = [
 	{
@@ -19,6 +20,11 @@ const routes = [
 		path: "/berita",
 		name: "Berita",
 		component: Berita,
+	},
+	{
+		path: "/profil",
+		name: "Profil",
+		component: Profil,
 	},
 ];
 
