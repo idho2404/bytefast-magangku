@@ -4,6 +4,9 @@ import Beranda from "../views/Beranda.vue";
 import AdministrasiPage from "../views/AdministrasiPage.vue";
 import Berita from "../views/Berita.vue"
 import Profil from "../views/Profil.vue"
+import Login from "../views/Login.vue";
+import Register from "../views/Register.vue";
+
 
 const routes = [
 	{
@@ -25,6 +28,16 @@ const routes = [
 		path: "/profil",
 		name: "Profil",
 		component: Profil,
+	},
+	{
+		path: "/login",
+		name: "login",
+		component: Login,
+	},
+	{
+		path: "/register",
+		name: "register",
+		component: Register,
 	},
 ];
 
