@@ -40,11 +40,11 @@
     </div>
 
     <!-- Daftar Izin yang Diajukan -->
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h3 class="text-lg font-medium text-gray-800">Daftar Izin yang Diajukan</h3>
-      <table class="w-full mt-4 text-left table-auto">
+    <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md mb-6 text-white">
+      <h3 class="text-lg font-medium">Daftar Izin yang Diajukan</h3>
+      <table class="w-full mt-4 text-left table-auto text-white">
         <thead>
-          <tr class="bg-gray-200 text-gray-600 uppercase text-xs leading-normal">
+          <tr class="bg-purple-600 text-white uppercase text-xs leading-normal">
             <th class="py-2 px-3">No.</th>
             <th class="py-2 px-3">Jenis Izin</th>
             <th class="py-2 px-3">Tanggal Mulai</th>
@@ -54,15 +54,15 @@
             <th class="py-2 px-3">Status</th>
           </tr>
         </thead>
-        <tbody class="text-gray-700 text-xs font-light">
-          <tr v-for="(item, index) in izinList" :key="index" class="border-b border-gray-200 hover:bg-gray-100">
+        <tbody class="text-xs font-light">
+          <tr v-for="(item, index) in izinList" :key="index" class="border-b border-purple-400 hover:bg-purple-600">
             <td class="py-1 px-2">{{ index + 1 }}.</td>
             <td class="py-1 px-2">{{ item.jenisIzin }}</td>
             <td class="py-1 px-2">{{ item.tanggalMulai }}</td>
             <td class="py-1 px-2">{{ item.tanggalSelesai }}</td>
             <td class="py-1 px-2">{{ item.alasan }}</td>
             <td class="py-1 px-2">
-              <a :href="item.lampiran" target="_blank" class="text-blue-500 hover:underline">Lihat Lampiran</a>
+              <a :href="item.lampiran" target="_blank" class="text-blue-200 hover:underline">Lihat Lampiran</a>
             </td>
             <td :class="getStatusClass(item.status)" class="py-1 px-2 font-semibold">{{ item.status }}</td>
           </tr>
@@ -73,18 +73,18 @@
     <!-- Summary and Additional Features -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
       <!-- Status Izin Chart -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Status Izin</h3>
+      <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md text-white">
+        <h3 class="text-lg font-medium">Status Izin</h3>
         <div class="mt-4">
           <canvas id="izinChart"></canvas>
         </div>
       </div>
 
       <!-- Statistics -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Statistik Izin</h3>
+      <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md text-white">
+        <h3 class="text-lg font-medium">Statistik Izin</h3>
         <div class="mt-4">
-          <ul class="space-y-3 text-sm text-gray-700">
+          <ul class="space-y-3 text-sm">
             <li><strong>Total Izin Diajukan:</strong> {{ izinList.length }}</li>
             <li><strong>Total Izin Disetujui:</strong> {{ izinList.filter(i => i.status === 'Disetujui').length }}</li>
             <li><strong>Total Izin Ditolak:</strong> {{ izinList.filter(i => i.status === 'Ditolak').length }}</li>
@@ -94,13 +94,13 @@
       </div>
 
       <!-- Recent Notifications -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Notifikasi Terbaru</h3>
+      <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md text-white">
+        <h3 class="text-lg font-medium">Notifikasi Terbaru</h3>
         <div class="mt-4">
-          <ul class="space-y-3 text-sm text-gray-700">
-            <li v-for="(notif, index) in notifications" :key="index" class="border-b border-gray-200 pb-2">
+          <ul class="space-y-3 text-sm">
+            <li v-for="(notif, index) in notifications" :key="index" class="border-b border-purple-300 pb-2">
               <p>{{ notif.message }}</p>
-              <p class="text-xs text-gray-500">{{ notif.date }}</p>
+              <p class="text-xs text-gray-200">{{ notif.date }}</p>
             </li>
           </ul>
         </div>
@@ -108,11 +108,11 @@
     </div>
 
     <!-- Feedback Section -->
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h3 class="text-lg font-medium text-gray-800">Beri Umpan Balik</h3>
-      <textarea v-model="feedback" class="mt-4 w-full border border-gray-300 rounded-md p-2 text-sm text-gray-700" rows="4" placeholder="Beri umpan balik atau komentar..."></textarea>
+    <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md mb-6 text-white">
+      <h3 class="text-lg font-medium">Beri Umpan Balik</h3>
+      <textarea v-model="feedback" class="mt-4 w-full border border-purple-400 rounded-md p-2 text-sm bg-purple-600 placeholder-white" rows="4" placeholder="Beri umpan balik atau komentar..."></textarea>
       <div class="flex justify-end mt-4">
-        <button @click="submitFeedback" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Kirim Umpan Balik</button>
+        <button @click="submitFeedback" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Kirim Umpan Balik</button>
       </div>
     </div>
   </div>
@@ -157,7 +157,7 @@ const submitIzin = () => {
 };
 
 const getStatusClass = (status) => {
-  return status === 'Disetujui' ? 'text-green-600' : status === 'Ditolak' ? 'text-red-600' : 'text-yellow-600';
+  return status === 'Disetujui' ? 'text-green-300' : status === 'Ditolak' ? 'text-red-300' : 'text-yellow-300';
 };
 
 const submitFeedback = () => {
@@ -175,8 +175,8 @@ onMounted(() => {
         data: [izinList.value.filter(i => i.status === 'Disetujui').length,
                izinList.value.filter(i => i.status === 'Menunggu').length,
                izinList.value.filter(i => i.status === 'Ditolak').length],
-        backgroundColor: ['#4CAF50', '#FFC107', '#F44336'],
-        hoverBackgroundColor: ['#66BB6A', '#FFD54F', '#E57373']
+        backgroundColor: ['#66BB6A', '#FFD54F', '#E57373'],
+        hoverBackgroundColor: ['#81C784', '#FFE082', '#EF9A9A']
       }]
     },
     options: {
@@ -188,7 +188,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Tambahkan gaya responsif dan khusus di sini */
+/* Gaya responsif untuk memastikan tampilan tetap rapi di berbagai perangkat */
 @media (min-width: 640px) {
   .flex-col {
     flex-direction: column;

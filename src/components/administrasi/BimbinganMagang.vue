@@ -1,181 +1,229 @@
 <template>
   <div class="p-6">
     <!-- Header -->
-    <div class="flex justify-between items-center mb-4 border-b border-gray-300 pb-5">
-      <h2 class="text-2xl text-black font-semibold">Bimbingan Magang</h2>
-      <button @click="showModal = true" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Ajukan Bimbingan</button>
+    <div class="flex justify-between items-center mb-6">
+      <h2 class="text-2xl text-purple-700 font-semibold">Bimbingan Magang</h2>
     </div>
 
-    <!-- Modal Ajukan Bimbingan -->
-    <div v-if="showModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-      <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h3 class="text-lg font-semibold mb-4">Ajukan Bimbingan</h3>
-        <form @submit.prevent="submitBimbingan">
-          <div class="mb-4">
-            <label for="tanggal" class="block text-sm font-medium text-gray-700">Tanggal</label>
-            <input v-model="bimbingan.tanggal" type="date" id="tanggal" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-          </div>
-          <div class="mb-4">
-            <label for="waktu" class="block text-sm font-medium text-gray-700">Waktu</label>
-            <input v-model="bimbingan.waktu" type="time" id="waktu" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-          </div>
-          <div class="mb-4">
-            <label for="topik" class="block text-sm font-medium text-gray-700">Topik yang Ingin Dibahas</label>
-            <textarea v-model="bimbingan.topik" id="topik" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" rows="3" required></textarea>
-          </div>
-          <div class="flex justify-end">
-            <button @click="showModal = false" type="button" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 mr-2">Batal</button>
-            <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Ajukan</button>
-          </div>
-        </form>
+    <!-- Profil Dosen -->
+    <div class="bg-white p-6 rounded-lg border border-[5px] border-purple 800 mb-6">
+      <h3 class="text-lg font-medium text-purple-800">Profil Dosen</h3>
+      <div class="mt-4 bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-lg text-gray-800">
+        <p><strong>Nama:</strong> Dr. John Doe</p>
+        <p><strong>Email:</strong> john.doe@university.edu</p>
+        <p><strong>Jam Kerja:</strong> Senin-Jumat, 14:00 - 16:00</p>
+        <p><strong>Bidang Keahlian:</strong> Pengembangan Web, Manajemen Proyek</p>
+        <p><strong>LinkedIn:</strong> <a href="#" class="text-blue-500 hover:underline">linkedin.com/in/johndoe</a></p>
       </div>
     </div>
 
-    <!-- Informasi Mentor -->
-    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
-      <h3 class="text-lg font-medium text-gray-800">Informasi Mentor</h3>
-      <div class="flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 mt-4">
-        <img src="https://via.placeholder.com/100" alt="Foto Mentor" class="rounded-full h-24 w-24 object-cover">
-        <div>
-          <p class="text-sm text-gray-600"><strong>Nama:</strong> John Doe</p>
-          <p class="text-sm text-gray-600"><strong>Email:</strong> john.doe@example.com</p>
-          <p class="text-sm text-gray-600"><strong>Jam Kerja:</strong> Senin-Jumat, 14:00 - 16:00</p>
-          <p class="text-sm text-gray-600"><strong>Bidang Keahlian:</strong> Pengembangan Web, Manajemen Proyek</p>
-          <p class="text-sm text-gray-600"><strong>LinkedIn:</strong> <a href="#" class="text-blue-500 hover:underline">linkedin.com/in/johndoe</a></p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Catatan Pribadi, Catatan Hasil, dan Riwayat Bimbingan -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Catatan Pribadi</h3>
-        <textarea v-model="catatanPribadi" class="mt-4 w-full border border-gray-300 rounded-md p-2 text-sm text-gray-700" rows="6" placeholder="Tambahkan catatan Anda di sini..."></textarea>
-        <div class="flex justify-end mt-4">
-          <button @click="simpanCatatan" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Simpan Catatan</button>
-        </div>
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Catatan Hasil Bimbingan</h3>
-        <p class="mt-4 text-sm text-gray-700">Catatan dari hasil bimbingan sebelumnya yang telah disepakati bersama.</p>
-        <!-- Placeholder for Catatan Hasil Bimbingan -->
-      </div>
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Riwayat Bimbingan</h3>
-        <ul class="mt-4 space-y-2 text-sm text-gray-700">
-          <li><strong>25/08/2024:</strong> Pembahasan awal proyek</li>
-          <li><strong>01/09/2024:</strong> Review proposal dan feedback</li>
-          <li><strong>10/09/2024:</strong> Penilaian kemajuan dan arahan lanjut</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Tugas yang Diberikan (Timeline), Progress, dan Evaluasi -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-      <!-- Timeline Tugas -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Tugas yang Diberikan</h3>
-        <div class="mt-4">
-          <div class="relative pb-6">
-            <div class="absolute inset-0 flex items-center" aria-hidden="true">
-              <div class="h-full w-0.5 bg-gray-200"></div>
+    <!-- Jadwal dan Pengingat -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <!-- Jadwal Pertemuan -->
+      <div class="bg-gradient-to-r from-purple-800 to-blue-800 p-6 rounded-lg shadow-md  text-white">
+        <h3 class="text-lg text-center text-white font-medium">Jadwal Pertemuan</h3>
+        <p class="mt-4 text-white text-center">Jadwal Pertemuan dengan Dosen yang telah disetujui</p>
+        <div class="mt-4 bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-lg text-gray-800">
+          <!-- Calendar placeholder -->
+          <div class="calendar-container">
+            <div class="calendar">
+              <div class="calendar-header flex justify-between items-center">
+                <button class="text-gray-700 hover:text-gray-900">
+                  &lt;
+                </button>
+                <h4 class="font-bold">September 2024</h4>
+                <button class="text-gray-700 hover:text-gray-900">
+                  &gt;
+                </button>
+              </div>
+              <div class="calendar-grid grid grid-cols-7 gap-2 mt-4 text-center">
+                <div class="font-bold">Sun</div>
+                <div class="font-bold">Mon</div>
+                <div class="font-bold">Tue</div>
+                <div class="font-bold">Wed</div>
+                <div class="font-bold">Thu</div>
+                <div class="font-bold">Fri</div>
+                <div class="font-bold">Sat</div>
+                <!-- Calendar dates -->
+                <div class="text-gray-400">29</div>
+                <div class="text-gray-400">30</div>
+                <div class="text-gray-400">31</div>
+                <div>1</div>
+                <div class="bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full">2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+                <div>8</div>
+                <div>9</div>
+                <div>10</div>
+                <div>11</div>
+                <div>12</div>
+                <div>13</div>
+                <div>14</div>
+                <div>15</div>
+                <div>16</div>
+                <div>17</div>
+                <div>18</div>
+                <div>19</div>
+                <div>20</div>
+                <div class="bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full">21</div>
+                <div>22</div>
+                <div>23</div>
+                <div>24</div>
+                <div>25</div>
+                <div>26</div>
+                <div>27</div>
+                <div>28</div>
+                <div>29</div>
+                <div>30</div>
+                <div class="text-gray-400">1</div>
+                <div class="text-gray-400">2</div>
+                <div class="text-gray-400">3</div>
+                <div class="text-gray-400">4</div>
+              </div>
             </div>
-            <ul class="relative space-y-6">
-              <li>
-                <div class="relative flex items-center space-x-3">
-                  <div class="flex-shrink-0">
-                    <span class="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center ring-8 ring-white">
-                      <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"/>
-                      </svg>
-                    </span>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-sm font-medium text-gray-900">Selesaikan proposal proyek sebelum 25/08/2024</p>
-                    <p class="text-sm text-gray-500">20/08/2024</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="relative flex items-center space-x-3">
-                  <div class="flex-shrink-0">
-                    <span class="h-8 w-8 rounded-full bg-yellow-500 flex items-center justify-center ring-8 ring-white">
-                      <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"/>
-                      </svg>
-                    </span>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-sm font-medium text-gray-900">Perbarui basis kode dengan fitur terbaru sebelum 01/09/2024</p>
-                    <p class="text-sm text-gray-500">27/08/2024</p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="relative flex items-center space-x-3">
-                  <div class="flex-shrink-0">
-                    <span class="h-8 w-8 rounded-full bg-red-500 flex items-center justify-center ring-8 ring-white">
-                      <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M16.707 5.293a1 1 0 00-1.414 0L9 11.586 6.707 9.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"/>
-                      </svg>
-                    </span>
-                  </div>
-                  <div class="min-w-0 flex-1">
-                    <p class="text-sm font-medium text-gray-900">Siapkan presentasi untuk rapat akhir review</p>
-                    <p class="text-sm text-gray-500">01/09/2024</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
 
-      <!-- Progress Chart -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Progress Magang</h3>
-        <div class="mt-4">
-          <canvas id="progressChart"></canvas>
-        </div>
-      </div>
-
-      <!-- Evaluasi -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Evaluasi Bimbingan</h3>
-        <textarea v-model="evaluasi" class="mt-4 w-full border border-gray-300 rounded-md p-2 text-sm text-gray-700" rows="6" placeholder="Tambahkan evaluasi atau umpan balik di sini..."></textarea>
-        <div class="flex justify-end mt-4">
-          <button @click="submitEvaluasi" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Kirim Evaluasi</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Reminder and Notifications -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      <!-- Reminder -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Reminder Bimbingan</h3>
-        <div class="mt-4">
-          <ul class="space-y-3 text-sm text-gray-700">
-            <li><strong>Pengingat:</strong> Anda memiliki bimbingan pada 01/09/2024 pukul 14:00.</li>
-            <li><strong>Pengingat:</strong> Tugas presentasi akhir harus diselesaikan sebelum 01/09/2024.</li>
-          </ul>
-          <div class="flex justify-end mt-4">
-            <button @click="setReminder" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Setel Pengingat</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Notifications -->
-      <div class="bg-white p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-gray-800">Notifikasi Terbaru</h3>
-        <div class="mt-4">
-          <ul class="space-y-3 text-sm text-gray-700">
-            <li><strong>27/08/2024:</strong> Anda telah menyelesaikan 60% dari tugas magang Anda.</li>
-            <li><strong>01/09/2024:</strong> Bimbingan terakhir dijadwalkan pada 14:00.</li>
-          </ul>
+      <!-- Pengaturan Waktu Konsultasi -->
+      <div class="bg-gradient-to-r from-purple-800 to-blue-800 p-6 rounded-lg shadow-md text-white">
+        <h3 class="text-lg font-medium text-center text-white">Pengaturan Waktu Konsultasi</h3>
+        <p class="mt-4 text-center text-white">Atur waktu konsultasi. Pilih slot waktu yang tersedia.</p>
+        <div class="mt-4 bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-lg text-gray-800">
+          <form>
+            <div class="mb-4">
+              <label for="consultation-date" class="block text-sm font-medium text-gray-700">Tanggal Konsultasi</label>
+              <input type="date" id="consultation-date" class="mt-1 bg-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm">
+            </div>
+            <div class="mb-4">
+              <label for="consultation-time" class="block text-sm font-medium text-gray-700">Pilih Waktu</label>
+              <select id="consultation-time" class="mt-1 bg-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm">
+                <option value="14:00">14:00 - 14:30</option>
+                <option value="14:30">14:30 - 15:00</option>
+                <option value="15:00">15:00 - 15:30</option>
+                <option value="15:30">15:30 - 16:00</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="activity-name" class="block text-sm font-medium text-gray-700">Nama Kegiatan</label>
+              <input type="text" id="activity-name" class="mt-1 bg-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" placeholder="Masukkan nama kegiatan">
+            </div>
+            <div class="text-center"><button type="submit" class="bg-gradient-to-r from-purple-800 to-blue-800 text-white px-4 py-2 rounded-lg hover:bg-purple-600">Ajukan</button></div>
+          </form>
         </div>
       </div>
     </div>
+
+    <!-- Grafik dan Statistik -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+      <!-- Grafik Progress -->
+      <div class="bg-white border border-[5px] border-purple-800 p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-center text-purple-800">Grafik Progress Mahasiswa</h3>
+        <div class="mt-4 bg-white p-4 rounded-lg text-gray-800">
+          <canvas id="progressChart" class="h-48"></canvas>
+        </div>
+      </div>
+
+      <!-- Riwayat Bimbingan -->
+      <div class="bg-white border border-[5px] border-purple-800 p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-purple-800 text-center">Riwayat Bimbingan</h3>
+        <div class="mt-4 p-4 rounded-md text-gray-800 overflow-y-auto max-h-80">
+          <ul class="space-y-3">
+            <li class="flex justify-between">
+              <div class="border-b-2 pb-2">
+                <p class="font-semibold text-purple-700">Pertemuan 1:</p>
+                <p>Diskusi pembahasan proposal proyek dan menentukan timeline kerja.</p>
+                <p class="text-sm text-gray-600">Tanggal: 01/09/2024</p>
+              </div>
+            </li>
+            <li class="flex justify-between">
+              <div class="border-b-2 pb-2">
+                <p class="font-semibold text-purple-700">Pertemuan 2:</p>
+                <p>Review kemajuan proyek dan revisi bab 2 laporan magang.</p>
+                <p class="text-sm text-gray-600">Tanggal: 08/09/2024</p>
+              </div>
+            </li>
+            <li class="flex justify-between">
+              <div class="border-b-2 pb-2">
+                <p class="font-semibold text-purple-700">Pertemuan 3:</p>
+                <p>Penilaian awal hasil kerja dan masukan perbaikan.</p>
+                <p class="text-sm text-gray-600">Tanggal: 15/09/2024</p>
+              </div>
+            </li>
+            <li class="flex justify-between">
+              <div class="border-b-2 pb-2">
+                <p class="font-semibold text-purple-700">Pertemuan 4:</p>
+                <p>Evaluasi keseluruhan progress dan persiapan presentasi akhir.</p>
+                <p class="text-sm text-gray-600">Tanggal: 22/09/2024</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+
+    <!-- Daftar Tugas -->
+  <div class="bg-gradient-to-r from-purple-800 to-blue-800 p-6 rounded-lg shadow-md text-white">
+    <h3 class="text-lg font-medium text-white text-center">Daftar Penugasan</h3>
+    <p class="mt-4 text-center">Daftar tugas yang harus diselesaikan oleh mahasiswa, dengan status pencapaian dan prioritas.</p>
+    <div class="mt-4 p-4 rounded-lg text-gray-800">
+      <table class="w-full text-black rounded-md overflow-hidden">
+        <thead>
+          <tr class="bg-purple-500 text-white">
+            <th class="py-2 px-4 text-center">Centang</th>
+            <th class="py-2 px-4 text-center">Tugas</th>
+            <th class="py-2 px-4 text-center">Status</th>
+            <th class="py-2 px-4 text-center">Prioritas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="bg-white hover:bg-gray-100">
+            <td class="py-2 px-4 text-center">
+              <input type="checkbox" checked disabled />
+            </td>
+            <td class="py-2 px-4 line-through text-center">Menyusun Proposal</td>
+            <td class="py-2 px-4 text-center">Selesai</td>
+            <td class="py-2 px-4 text-center">Tinggi</td>
+          </tr>
+          <tr class="bg-white hover:bg-gray-100">
+            <td class="py-2 px-4 text-center">
+              <input type="checkbox" checked disabled />
+            </td>
+            <td class="py-2 px-4 line-through text-center">Mengumpulkan Data</td>
+            <td class="py-2 px-4 text-center">Selesai</td>
+            <td class="py-2 px-4 text-center">Tinggi</td>
+          </tr>
+          <tr class="bg-white hover:bg-gray-100">
+            <td class="py-2 px-4 text-center">
+              <input type="checkbox" />
+            </td>
+            <td class="py-2 px-4 text-center">Merevisi Kode</td>
+            <td class="py-2 px-4 text-center">Proses</td>
+            <td class="py-2 px-4 text-center">Sedang</td>
+          </tr>
+          <tr class="bg-white hover:bg-gray-100">
+            <td class="py-2 px-4 text-center">
+              <input type="checkbox" />
+            </td>
+            <td class="py-2 px-4 text-center">Menulis Laporan Akhir</td>
+            <td class="py-2 px-4 text-center">Belum Mulai</td>
+            <td class="py-2 px-4 text-center">Tinggi</td>
+          </tr>
+          <tr class="bg-white hover:bg-gray-100">
+            <td class="py-2 px-4 text-center">
+              <input type="checkbox" />
+            </td>
+            <td class="py-2 px-4 text-center">Persiapan Presentasi</td>
+            <td class="py-2 px-4 text-center">Belum Mulai</td>
+            <td class="py-2 px-4 text-center">Rendah</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -184,30 +232,10 @@ import { ref, onMounted } from 'vue';
 import { Chart } from 'chart.js/auto';
 
 const showModal = ref(false);
-const catatanPribadi = ref('');
-const bimbingan = ref({
-  tanggal: '',
-  waktu: '',
-  topik: ''
-});
-const evaluasi = ref('');
-
-const simpanCatatan = () => {
-  alert('Catatan berhasil disimpan!');
-};
 
 const submitBimbingan = () => {
   alert('Bimbingan berhasil diajukan!');
   showModal.value = false;
-};
-
-const submitEvaluasi = () => {
-  alert('Evaluasi berhasil dikirim!');
-  evaluasi.value = '';
-};
-
-const setReminder = () => {
-  alert('Reminder berhasil disetel!');
 };
 
 onMounted(() => {
@@ -218,7 +246,7 @@ onMounted(() => {
       labels: ['Selesai', 'Dalam Proses', 'Belum Mulai'],
       datasets: [{
         data: [60, 30, 10], // Contoh data progress
-        backgroundColor: ['#4CAF50', '#FFC107', '#F44336'],
+        backgroundColor: ['#8e24aa', '#ba68c8', '#e57373'],
         hoverBackgroundColor: ['#66BB6A', '#FFD54F', '#E57373']
       }]
     },
@@ -247,4 +275,46 @@ onMounted(() => {
 #progressChart {
   height: 250px; /* Tinggi untuk chart */
 }
+
+.calendar-container {
+  max-height: 300px; /* Adjust as necessary */
+  overflow-y: auto;
+}
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* Custom scrollbar styles */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px; /* Lebar scrollbar */
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #e0d7ff; /* Warna track scrollbar */
+  border-radius: 8px; /* Membuat track scrollbar rounded */
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #7c3aed; /* Warna thumb scrollbar */
+  border-radius: 8px; /* Membuat thumb scrollbar rounded */
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #5b21b6; /* Warna thumb scrollbar saat di hover */
+}
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white border-b border-gray-200 fixed top-0 left-0 w-full z-10">
+  <nav class="bg-white border-b border-purple-800 fixed top-0 left-0 w-full z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center h-16">
         <!-- Logo dan Nama -->
@@ -9,38 +9,30 @@
 
         <!-- Menu Navigasi -->
         <div class="hidden sm:flex sm:space-x-8">
-          <router-link to="/" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <router-link to="/" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-purple-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Beranda
           </router-link>
-          <router-link to="/administrasi" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <router-link to="/administrasi" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-purple-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Administrasi
           </router-link>
-          <router-link to="/berita" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+          <router-link to="/berita" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-purple-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
             Berita
           </router-link>
-          <router-link to="/profil" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
-            Dosen Pembimbing
+          <router-link to="/profil" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-purple-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+            Profil
           </router-link>
-          <!-- <div class="relative" @mouseleave="closeDropdown">
-            <button @click="toggleDropdown" @mouseenter="openDropdown" type="button" class="text-gray-500 inline-flex items-center px-1 pt-1 text-sm font-medium hover:text-gray-700 focus:outline-none">
-              Resources
-              <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-              </svg>
-            </button> -->
-            <!-- Dropdown menu -->
-            <!-- <div v-if="isDropdownOpen" class="absolute z-10 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 1</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 2</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 3</a>
-            </div>
-          </div> -->
+          <router-link to="/template" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-purple-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+            Template
+          </router-link>
+          <router-link to="/pembimbing" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-purple-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
+            Pembimbing
+          </router-link>
         </div>
 
         <!-- Tombol Aksi dan Toggle Dark Mode -->
         <div class="hidden sm:flex sm:items-center sm:space-x-4">
           <!-- Toggle Dark Mode -->
-          <button @click="toggleDarkMode" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-gray-500 hover:bg-gray-100 focus:outline-none">
+          <button @click="toggleDarkMode" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 text-gray-500 hover:bg-gray-100 hover:border-purple-800 focus:outline-none">
             <svg v-if="!isDarkMode" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
             </svg>

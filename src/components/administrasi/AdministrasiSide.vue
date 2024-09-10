@@ -1,111 +1,118 @@
 <template>
-  <div class="flex flex-col min-h-screen p-5">
+  <div class="flex flex-col min-h-screen p-5 border-r-2 ">
     <!-- Main Content with Sidebar -->
-    <div class="flex">
+    <div class="flex flex-col md:flex-row">
       <!-- Sidebar -->
-      <aside class="w-64 h-screen bg-indigo-900 text-white p-6 rounded-lg fixed">
+      <aside
+        class="w-full md:w-64 bg-gradient-to-r from-purple-700 to-indigo-700 text-white p-6 rounded-lg md:fixed md:top-16 md:left-5 md:ml-5 md:mt-5 md:mb-5 shadow-lg flex flex-col justify-between"
+      >
         <div class="p-4">
-          <h1 class="text-2xl font-bold mb-10">MagangKu</h1>
+          <div class="border-b-2 mb-10">
+            <h1 class="text-2xl text-center font-bold mb-2">LINK</h1>
+          </div>
           <nav>
             <ul>
               <!-- Presensi -->
-              <li class="mb-4">
+              <li class="mb-8">
                 <a
                   href="#"
                   @click.prevent="currentView = 'Presensi'"
                   :class="['flex items-center', currentView === 'Presensi' ? 'text-purple-300' : 'hover:text-purple-300']"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M3 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H3zM9 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H9zM3 9a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H3zM9 9a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H9z"/>
+                  <svg class="w-5 h-5 mr-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M4 4h6v6H4V4Zm10 10h6v6h-6v-6Zm0-10h6v6h-6V4Zm-4 10h.01v.01H10V14Zm0 4h.01v.01H10V18Zm-3 2h.01v.01H7V20Zm0-4h.01v.01H7V16Zm-3 2h.01v.01H4V18Zm0-4h.01v.01H4V14Z"/>
+                    <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M7 7h.01v.01H7V7Zm10 10h.01v.01H17V17Z"/>
                   </svg>
                   Presensi
                 </a>
               </li>
 
-              <!-- Logbook -->
-              <li class="mb-4">
-                <div @click="toggleDropdown('logbook')" class="flex items-center justify-between cursor-pointer hover:text-purple-300">
-                  <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M7 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-2V3a1 1 0 00-1-1H7z"/>
-                    </svg>
-                    Logbook
-                  </div>
-                  <svg :class="{'transform rotate-180': dropdowns.logbook}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              <!-- Logbook (directly calls Logbook Harian) -->
+              <li class="mb-8">
+                <a
+                  href="#"
+                  @click.prevent="currentView = 'LogbookHarian'"
+                  :class="['flex items-center', currentView === 'LogbookHarian' ? 'text-purple-300' : 'hover:text-purple-300']"
+                >
+                  <svg class="w-5 h-5 mr-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h10"/>
                   </svg>
-                </div>
-                <ul v-show="dropdowns.logbook" class="ml-6 mt-2">
-                  <li class="mb-2">
-                    <a href="#" @click.prevent="currentView = 'LogbookHarian'" :class="['flex items-center', currentView === 'LogbookHarian' ? 'text-purple-300' : 'hover:text-purple-300']">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M2.5 4A1.5 1.5 0 014 2.5h12A1.5 1.5 0 0117.5 4v12a1.5 1.5 0 01-1.5 1.5H4A1.5 1.5 0 012.5 16V4zM4 4v12h12V4H4z"/>
-                      </svg>
-                      Logbook Harian
-                    </a>
-                  </li>
-                  <li class="mb-2">
-                    <a href="#" @click.prevent="currentView = 'LogbookBulanan'" :class="['flex items-center', currentView === 'LogbookBulanan' ? 'text-purple-300' : 'hover:text-purple-300']">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M3.25 5A2.25 2.25 0 015.5 2.75h9A2.25 2.25 0 0116.75 5v10A2.25 2.25 0 0114.5 17.25h-9A2.25 2.25 0 013.25 15V5zM5.5 3.5A1.25 1.25 0 004.25 4.75v10a1.25 1.25 0 001.25 1.25h9a1.25 1.25 0 001.25-1.25v-10a1.25 1.25 0 00-1.25-1.25h-9z"/>
-                      </svg>
-                      Logbook Bulanan
-                    </a>
-                  </li>
-                </ul>
-              </li>
 
-              <!-- Laporan Magang -->
-              <li class="mb-4">
-                <a href="#" @click.prevent="currentView = 'LaporanMagang'" :class="['flex items-center', currentView === 'LaporanMagang' ? 'text-purple-300' : 'hover:text-purple-300']">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4z"/>
-                  </svg>
-                  Laporan Magang
+                  Logbook
                 </a>
               </li>
 
-              <!-- Bimbingan Magang -->
-              <li class="mb-4">
-                <div @click="toggleDropdown('bimbinganMagang')" class="flex items-center justify-between cursor-pointer hover:text-purple-300">
-                  <div class="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M5 3a1 1 0 00-1 1v12a1 1 0 001 1h10a1 1 0 001-1V4a1 1 0 00-1-1H5z"/>
-                    </svg>
-                    Bimbingan Magang
-                  </div>
-                  <svg :class="{'transform rotate-180': dropdowns.bimbinganMagang}" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-200" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M5.293 9.293a1 1 0 011.414 0L10 12.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+              <!-- Laporan Magang -->
+              <li class="mb-8">
+                <a
+                  href="#"
+                  @click.prevent="currentView = 'LaporanMagang'"
+                  :class="['flex items-center', currentView === 'LaporanMagang' ? 'text-purple-300' : 'hover:text-purple-300']"
+                >
+                  <svg class="w-5 h-5 mr-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z" clip-rule="evenodd"/>
                   </svg>
-                </div>
-                <ul v-show="dropdowns.bimbinganMagang" class="ml-6 mt-2">
-                  <li class="mb-2">
-                    <a href="#" @click.prevent="currentView = 'BimbinganMagang'" :class="['flex items-center', currentView === 'BimbinganMagang' ? 'text-purple-300' : 'hover:text-purple-300']">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M5.5 2a1.5 1.5 0 00-1.5 1.5v13A1.5 1.5 0 005.5 18h9A1.5 1.5 0 0016 16.5v-13A1.5 1.5 0 0014.5 2h-9z"/>
-                      </svg>
-                      Bimbingan Magang
-                    </a>
-                  </li>
-                </ul>
+                  Laporan
+                </a>
+              </li>
+
+              <!-- Bimbingan (without dropdown) -->
+              <li class="mb-8">
+                <a
+                  href="#"
+                  @click.prevent="currentView = 'BimbinganMagang'"
+                  :class="['flex items-center', currentView === 'BimbinganMagang' ? 'text-purple-300' : 'hover:text-purple-300']"
+                >
+                  <svg class="w-5 h-5 mr-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M5 3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm14 18a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4ZM5 11a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H5Zm14 2a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4Z"/>
+                  </svg>
+
+                  Bimbingan
+                </a>
               </li>
 
               <!-- Perizinan Kampus -->
-              <li class="mb-4">
-                <a href="#" @click.prevent="currentView = 'PerizinanKampus'" :class="['flex items-center', currentView === 'PerizinanKampus' ? 'text-purple-300' : 'hover:text-purple-300']">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                    <path d="M3 3a1 1 0 00-1 1v12a1 1 0 001 1h14a1 1 0 001-1V4a1 1 0 00-1-1H3z"/>
+              <li class="mb-8">
+                <a
+                  href="#"
+                  @click.prevent="currentView = 'PerizinanKampus'"
+                  :class="['flex items-center', currentView === 'PerizinanKampus' ? 'text-purple-300' : 'hover:text-purple-300']"
+                >
+                  <svg class="w-5 h-5 mr-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M5.617 2.076a1 1 0 0 1 1.09.217L8 3.586l1.293-1.293a1 1 0 0 1 1.414 0L12 3.586l1.293-1.293a1 1 0 0 1 1.414 0L16 3.586l1.293-1.293A1 1 0 0 1 19 3v18a1 1 0 0 1-1.707.707L16 20.414l-1.293 1.293a1 1 0 0 1-1.414 0L12 20.414l-1.293 1.293a1 1 0 0 1-1.414 0L8 20.414l-1.293 1.293A1 1 0 0 1 5 21V3a1 1 0 0 1 .617-.924ZM9 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2H9Zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Zm0 4a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2H9Z" clip-rule="evenodd"/>
                   </svg>
-                  Perizinan Kampus
+
+                  Perizinan
+                </a>
+              </li>
+
+              <!-- Template Dokumen -->
+              <li class="mb-8">
+                <a
+                  href="#"
+                  @click.prevent="currentView = 'Template'"
+                  :class="['flex items-center', currentView === 'Template' ? 'text-purple-300' : 'hover:text-purple-300']"
+                >
+                  <svg class="w-5 h-5 mr-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" d="M20 10H4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8ZM9 13v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z" clip-rule="evenodd"/>
+                  <path d="M2 6a2 2 0 0 1 2-2h16a2 2 0 1 1 0 4H4a2 2 0 0 1-2-2Z"/>
+                </svg>
+
+                  Template
                 </a>
               </li>
             </ul>
           </nav>
         </div>
+        <!-- Footer Element for Equal Spacing -->
+        <div class="text-xs text-center mt-auto text-gray-400">
+          &copy; 2024 MagangKu. All rights reserved.
+        </div>
       </aside>
 
       <!-- Main Content -->
-      <main class="w-full md:w-4/5 bg-none border rounded-lg  p-10 ml-64">
+      <main class="w-full md:w-4/5 bg-none md:ml-72 md:pl-10">
+        <!-- Component Content -->
         <component :is="componentMap[currentView]" />
       </main>
     </div>
@@ -118,42 +125,27 @@ import { ref } from 'vue';
 // Importing components
 import Presensi from '../administrasi/Presensi.vue';
 import LogbookHarian from '../administrasi/LogbookHarian.vue';
-import LogbookBulanan from '../administrasi/LogbookBulanan.vue';
 import LaporanMagang from '../administrasi/LaporanMagang.vue';
 import BimbinganMagang from '../administrasi/BimbinganMagang.vue';
 import PerizinanKampus from '../administrasi/PerizinanKampus.vue';
+import Template from '../administrasi/Template.vue';
 
 // Mapping view names to components
 const componentMap = {
   Presensi,
   LogbookHarian,
-  LogbookBulanan,
   LaporanMagang,
   BimbinganMagang,
   PerizinanKampus,
+  Template,
 };
 
 // Reactive state
 const currentView = ref('Presensi');
-
-const dropdowns = ref({
-  logbook: false,
-  bimbinganMagang: false,
-});
-
-// // Methods
-// function toggleDropdown(menu) {
-//   dropdowns.value[menu] = !dropdowns.value[menu];
-// }
-
-// Method to toggle dropdown visibility
-const toggleDropdown = (dropdown) => {
-  dropdowns.value[dropdown] = !dropdowns.value[dropdown];
-};
 </script>
 
 <style scoped>
-/* Optional: Add transitions for dropdown menus */
+/* Optional: Add transitions for hover effects */
 ul[v-show] {
   transition: all 0.3s ease;
   overflow: hidden;

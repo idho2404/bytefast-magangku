@@ -1,8 +1,8 @@
 <template>
   <div class="p-6">
     <!-- Header -->
-    <div class="flex justify-between items-center mb-4 border-b border-gray-300 pb-5">
-      <h3 class="text-xl text-black font-semibold">Laporan Magang</h3>
+    <div class="flex justify-center text-center items-center mb-4 border-b border-gray-300 pb-5">
+      <h3 class="text-xl text-black font-bold text-center text-purple-700">LAPORAN MAGANG</h3>
     </div>
 
     <!-- Submission Date and File Upload -->
@@ -10,17 +10,17 @@
       <!-- Tanggal Pengumpulan Laporan Magang -->
       <div class="mb-4 w-full md:w-[25rem]">
         <label for="submissionDate" class="block text-sm font-medium text-gray-700">Tanggal Pengumpulan</label>
-        <input v-model="submissionDate" type="date" id="submissionDate" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+        <input v-model="submissionDate" type="date" id="submissionDate" class="mt-1 bg-purple-600 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" />
       </div>
 
       <!-- Berkas Laporan Magang -->
       <div class="mb-4">
         <label for="reportFile" class="block text-sm font-medium text-gray-700">Berkas Laporan Magang</label>
-        <div @dragover.prevent @drop.prevent="handleFileDrop" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md cursor-pointer" @click="triggerFileInput">
+        <div @dragover.prevent @drop.prevent="handleFileDrop" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-purple-300 border-dashed rounded-md cursor-pointer" @click="triggerFileInput">
           <div class="space-y-1 text-center">
-            <font-awesome-icon icon="image" class="mx-auto text-9xl text-gray-400"/>
+            <font-awesome-icon icon="image" class="mx-auto text-9xl text-purple-400"/>
             <div class="flex flex-col text-sm text-gray-600">
-              <label for="file-upload" class="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+              <label for="file-upload" class="relative cursor-pointer rounded-md font-medium text-purple-600 hover:text-purple-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-purple-500">
                 <span>Tarik File Ke Sini atau Klik Untuk Memilih File</span>
               </label>
               <p class="pl-1">Maksimal File 200 Mb</p>
@@ -48,10 +48,18 @@
       </div>
 
       <!-- Report Status -->
-      <div v-if="reportStatus" class="mt-4 p-4 rounded-lg bg-gray-100 text-gray-700">
+      <div v-if="reportStatus" class="mt-10 p-4 rounded-lg bg-purple-50 text-purple-700 flex justify-between items-center">
         <p><strong>Status:</strong> {{ reportStatus }}</p>
-        <button v-if="reportFileUrl" @click="viewReport" class="mt-2 text-blue-500 hover:underline">
-          <font-awesome-icon icon="eye" class="mr-1" /> View Report
+        <button 
+          v-if="reportFileUrl" 
+          @click="viewReport" 
+          class="flex items-center hover:text-blue-500 transition duration-300"
+          :style="{ 'outline': 'none', 'border': 'none' }"
+        >
+          <svg class="w-6 h-6 text-purple-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20 14h-2.722L11 20.278a5.511 5.511 0 0 1-.9.722H20a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1ZM9 3H4a1 1 0 0 0-1 1v13.5a3.5 3.5 0 1 0 7 0V4a1 1 0 0 0-1-1ZM6.5 18.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM19.132 7.9 15.6 4.368a1 1 0 0 0-1.414 0L12 6.55v9.9l7.132-7.132a1 1 0 0 0 0-1.418Z"/>
+          </svg>
+          <span class="ml-1 text-purple-800 hover:text-blue-800 transition duration-300">Lihat Laporan</span>
         </button>
       </div>
     </div>
