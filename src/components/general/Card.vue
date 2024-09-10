@@ -6,7 +6,7 @@
     <div>
       <h3 class="text-lg font-semibold text-black">{{ title }}</h3>
       <p class="mt-2 text-gray-500">{{ description }}</p>
-      <a href="#" class="mt-4 text-blue-500 hover:underline">Visit</a>
+      <a href="#" class="mt-4 text-purple-500 hover:underline">Visit</a>
     </div>
   </div>
 </template>

@@ -8,9 +8,9 @@
     <!-- Main Content with Sidebar -->
     <div class="flex flex-1 flex-col md:flex-row mt-1">
       <!-- Sidebar -->
-      <aside class="w-full md:w-1/5 bg-indigo-900 text-white p-6 rounded-lg md:mr-6 mb-4 md:mb-0">
+      <aside class="w-full md:w-1/5 bg-[#512E91] text-white p-6 rounded-lg md:mr-6 mb-4 md:mb-0">
         <div>
-          <h1 class="text-2xl font-bold mb-10">MagangKu</h1>
+          <h1 class="text-2xl font-bold mb-10">LINK</h1>
           <nav>
             <ul>
               <!-- Edit Profil -->

@@ -1,49 +1,46 @@
 <template>
   <!-- Section Portofolio -->
-  <div class="bg-gradient-to-b from-white via-white to-purple-200 py-16">
-    <div class="container mx-auto">
+  <div class="bg-gradient-to-b from-white via-white to-purple-200 pt-0 pb-5 py-16">
+    <div class="container mx-auto px-12 py-20 lg:py-10 relative">
       <!-- Judul Utama -->
       <h2 class="text-center text-3xl font-bold text-purple-600 mb-8">PORTOFOLIO</h2>
 
       <!-- Container for navigation buttons -->
-      <div class="flex justify-between items-center mb-4">
-        <div class="flex space-x-2">
-          <button @click="prevSlide" class="bg-white rounded-full shadow p-2 opacity-50 hover:opacity-100 transition-opacity duration-200">
-            <svg class="h-4 w-4" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4.43741 8.99998L11.0374 15.6L9.15208 17.4866L0.666748 8.99998L9.15208 0.514648L11.0374 2.39998L4.43741 8.99998Z" fill="#000000"/>
-            </svg>
-          </button>
-          <button @click="nextSlide" class="bg-white rounded-full shadow p-2 opacity-50 hover:opacity-100 transition-opacity duration-200">
-            <svg class="h-4 w-4" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7.56265 9.00011L0.962646 2.40011L2.84798 0.516113L11.3333 9.00011L2.84798 17.4854L0.962646 15.5988L7.56265 9.00011Z" fill="#000000"/>            
-            </svg>
-          </button>
-        </div>
+      <div class="absolute inset-y-0 left-0 flex items-center pl-4 z-10">
+        <button @click="prevSlide" class="bg-grey-600 text-white rounded-full shadow p-1.5 opacity-75 hover:opacity-100 transition-opacity duration-200">
+          <svg class="h-5 w-5" viewBox="0 0 12 18" fill="grey" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.43741 8.99998L11.0374 15.6L9.15208 17.4866L0.666748 8.99998L9.15208 0.514648L11.0374 2.39998L4.43741 8.99998Z" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-4 z-10">
+        <button @click="nextSlide" class="bg-grey-600 text-white rounded-full shadow p-1.5 opacity-75 hover:opacity-100 transition-opacity duration-200">
+          <svg class="h-5 w-5" viewBox="0 0 12 18" fill="grey" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.56265 9.00011L0.962646 2.40011L2.84798 0.516113L11.3333 9.00011L2.84798 17.4854L0.962646 15.5988L7.56265 9.00011Z" />
+          </svg>
+        </button>
       </div>
 
       <!-- Carousel Portofolio -->
-      <div class="relative">
-        <div class="overflow-hidden">
-          <div ref="carousel" class="flex transition-transform duration-300">
-            <div
-              v-for="i in 6"
-              :key="i"
-              class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 px-2"
-            >
-              <CardPortofolio
-                :title="'Portofolio ' + i"
-                imageSrc="/src/assets/image/portofolio.png"
-                class="w-full"
-              />
-            </div>
+      <div class="relative overflow-hidden">
+        <div ref="carousel" class="flex transition-transform duration-300">
+          <div
+            v-for="i in 10"
+            :key="i"
+            class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 px-2"
+          >
+            <CardPortofolio
+              :title="'Portofolio ' + i"
+              imageSrc="/src/assets/image/portofolio.png"
+              class="w-full h-full"
+            />
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
-
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
@@ -52,8 +49,8 @@ import CardPortofolio from '../general/CardPortofolio.vue';
 const currentIndex = ref(0);
 const slidesToShow = ref(4); // Default for large screens
 
-// Reference to the carousel element
 const carousel = ref(null);
+const autoSlideInterval = ref(null);
 
 const updateSlideToShow = () => {
   const width = window.innerWidth;
@@ -99,16 +96,31 @@ const updateSlide = () => {
   carousel.value.style.transform = `translateX(${offset}px)`;
 };
 
+const startAutoSlide = () => {
+  autoSlideInterval.value = setInterval(nextSlide, 3000); // Auto-slide every 3 seconds
+};
+
+const stopAutoSlide = () => {
+  clearInterval(autoSlideInterval.value);
+};
+
 onMounted(() => {
   updateSlideToShow();
   window.addEventListener('resize', updateSlideToShow);
+  startAutoSlide();
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', updateSlideToShow);
+  stopAutoSlide();
 });
 </script>
 
 <style scoped>
-/* Add any additional styling if needed */
+/* Style for CardPortofolio */
+.card {
+  background: linear-gradient(to bottom, rgba(128, 0, 128, 0.7), rgba(128, 0, 128, 0.5));
+  border-radius: 8px;
+  overflow: hidden;
+}
 </style>

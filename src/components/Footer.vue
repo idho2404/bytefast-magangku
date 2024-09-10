@@ -1,17 +1,17 @@
 <template>
-  <footer class="bg-[#1D1A44] text-white py-8">
+  <footer class="bg-[#512E91] text-white py-8 px-12 py-20 lg:py-10">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-start px-1">
       <!-- Left Section: Logo and Contact Info -->
       <div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-4 space-y-4 md:space-y-0 mb-6 md:mb-0">
         <img src="/src/assets/image/image.png" alt="Logo" class="w-45d h-auto"/>
         <div>
-          <h3 class="font-bold text-lg">Kalteng Satu Data</h3>
+          <h3 class="font-bold text-lg">Link Internship</h3>
           <p class="mt-2">
-            <span class="block">Email: <a href="mailto:satudata@kalteng.go.id" class="text-gray-300">satudata@kalteng.go.id</a></span>
+            <span class="block">Email: <a href="#" class="text-gray-300">linkintern@gmail.com</a></span>
             <span class="block">Alamat: Gedung Smart Province</span>
             <span class="block">Jl. Cilik Riwut No.88, Bukit Tunggal,</span>
-            <span class="block">Kec. Jekan Raya, Kota Palangka Raya,</span>
-            <span class="block">Kalimantan Tengah 74874</span>
+            <span class="block">Kec. Jekan Raya, Kota Surabaya,</span>
+            <span class="block">Jawa Timur</span>
           </p>
         </div>
       </div>
@@ -19,20 +19,20 @@
       <!-- Middle Section: Links -->
       <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-16">
         <div>
-          <h4 class="font-bold text-lg mb-4">Satu Data Kalteng</h4>
+          <h4 class="font-bold text-lg mb-4">Link Internship</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-white">Tentang</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white">Ketentuan Penggunaan</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white">Kebijakan Privasi</a></li>
+            <li><a href="/" class="text-gray-300 hover:text-white">Beranda</a></li>
+            <li><a href="/administrasi" class="text-gray-300 hover:text-white">Administrasi</a></li>
+            <li><a href="/berita" class="text-gray-300 hover:text-white">Berita</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="font-bold text-lg mb-4">Telusuri Satu Data</h4>
+          <h4 class="font-bold text-lg mb-4">Tentang</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="text-gray-300 hover:text-white">Dataset</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white">Artikel</a></li>
-            <li><a href="#" class="text-gray-300 hover:text-white">Kategori Data</a></li>
+            
+            <li><a href="#" class="text-gray-300 hover:text-white">Dosen Pembimbing</a></li>
+            <li><a href="/profil" class="text-gray-300 hover:text-white">Profil</a></li>
           </ul>
         </div>
 

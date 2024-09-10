@@ -19,22 +19,22 @@
             Berita
           </router-link>
           <router-link to="/profil" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 text-sm font-medium">
-            Profil
+            Dosen Pembimbing
           </router-link>
-          <div class="relative" @mouseleave="closeDropdown">
+          <!-- <div class="relative" @mouseleave="closeDropdown">
             <button @click="toggleDropdown" @mouseenter="openDropdown" type="button" class="text-gray-500 inline-flex items-center px-1 pt-1 text-sm font-medium hover:text-gray-700 focus:outline-none">
               Resources
               <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
               </svg>
-            </button>
+            </button> -->
             <!-- Dropdown menu -->
-            <div v-if="isDropdownOpen" class="absolute z-10 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <!-- <div v-if="isDropdownOpen" class="absolute z-10 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 1</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 2</a>
               <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Link 3</a>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <!-- Tombol Aksi dan Toggle Dark Mode -->
@@ -49,8 +49,10 @@
             </svg>
 
           </button>
-          <button class="bg-purple-500 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-md">Get Started</button>
-          <button class="border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white font-semibold py-2 px-4 rounded-md">Login</button>
+          <router-link to="/profil" class="border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white font-semibold py-2 px-4 rounded-md">
+            Profil
+          </router-link>
+          <button class="border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white font-semibold py-2 px-4 rounded-md">Logout</button>
         </div>
 
         <!-- Mobile menu button -->
