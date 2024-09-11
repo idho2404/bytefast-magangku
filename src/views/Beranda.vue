@@ -5,6 +5,7 @@
     <Berita />
     <Portofolio />
     <Footer />
+
 </template>
 
 <script setup>

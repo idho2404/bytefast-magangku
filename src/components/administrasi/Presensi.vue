@@ -1,10 +1,10 @@
 <template>
-  <div class="p-4 flex flex-col pl-[1px] space-y-6">
+  <div class="p-4 flex flex-col pl-[1px] space-y-6 ">
     <!-- Header -->
-    <h3 class="text-2xl font-bold text-center text-purple-700 border-b-[1px] border-purple-300 p-3">PRESENSI</h3>
+    <h3 class="text-2xl font-bold text-center text-purple-700 border-b-[1px] border-purple-300 p-3 dark:text-white">PRESENSI</h3>
 
     <!-- Combined Card -->
-    <div class="bg-white p-6 space-y-6">
+    <div class="bg-white dark:bg-black dark:text-white p-6 space-y-6">
       <!-- Location and Map Section -->
       <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
         <div class="w-full md:w-1/3 mb-5">
@@ -14,9 +14,9 @@
         <div class="w-full md:w-2/3 md:pl-6">
           <!-- Location Info -->
           <div class="bg-gray-100 p-4 rounded-lg text-center shadow-sm">
-            <p class="text-gray-700 text-sm font-semibold mb-1">Lokasi Magang :</p>
-            <p class="text-gray-700 text-sm mb-1">BPS Provinsi Jawa Timur</p>
-            <p class="text-gray-700 text-sm mb-1">Rabu, 21 Agustus 2024</p>
+            <p class="text-gray-700 dark:black text-sm font-semibold mb-1">Lokasi Magang :</p>
+            <p class="text-gray-700 dark:black text-sm mb-1">BPS Provinsi Jawa Timur</p>
+            <p class="text-gray-700 dark:black text-sm mb-1">Rabu, 21 Agustus 2024</p>
             <p class="text-xl font-bold text-gray-800 mt-2">9 : 48 : 45 PM</p>
             <p class="mt-2 text-red-600 font-semibold text-xs">
               Anda Berada Di Luar Lokasi Magang <br />
@@ -30,11 +30,11 @@
       </div>
 
       <!-- Attendance History Table -->
-      <div class="overflow-x-auto border-t-2 border-purple-300">
-        <h4 class="text-lg text-purple-800 mt-4 text-center font-semibold mb-4">DAFTAR HADIR</h4>
-        <table class="w-full text-left table-auto">
+      <div class="overflow-x-auto">
+        <h4 class="text-lg text-purple-800 mt-4 text-center font-bold mb-4 dark:text-white">DAFTAR HADIR</h4>
+        <table class="w-full text-left table-auto border border-indigo-500">
           <thead>
-            <tr class="bg-gradient-to-r from-purple-500 to-indigo-500 text-white uppercase text-xs leading-normal">
+            <tr class="bg-indigo-500 text-white uppercase text-xs leading-normal">
               <th class="py-3 px-4 text-center">No.</th>
               <th class="py-3 px-4 text-center">Tanggal</th>
               <th class="py-3 px-4 text-center">Waktu Datang</th>
@@ -42,7 +42,7 @@
               <th class="py-3 px-4 text-center">Status</th>
             </tr>
           </thead>
-          <tbody class="text-gray-700 text-sm font-light">
+          <tbody class="text-gray-700 dark:text-white text-sm">
             <tr class="border-b border-gray-200 hover:bg-gray-100">
               <td class="py-3 px-4 text-center">1.</td>
               <td class="py-3 px-4">Senin, 1 Agustus 2024</td>
@@ -85,8 +85,8 @@
       <!-- Updated Pagination -->
       <div class="flex justify-between items-center mt-10">
         <div>
-          <label for="rows" class="mr-2 text-sm text-gray-700">Rows per page:</label>
-          <select id="rows" class="border bg-purple-500 border-gray-300 rounded px-2 py-1 text-white">
+          <label for="rows" class="mr-2 text-sm text-gray-700 dark:text-white">Rows per page:</label>
+          <select id="rows" class="border bg-indigo-500 border-gray-300 rounded px-2 py-1 text-white">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>
@@ -94,7 +94,7 @@
           </select>
         </div>
         <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-          <a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-white bg-purple-500 hover:bg-purple-600 ring-1 ring-inset ring-purple-500 focus:z-20 focus:outline-none">
+          <a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-white bg-indigo-500 hover:bg-indigo-600 ring-1 ring-inset ring-indigo-500 focus:z-20 focus:outline-none">
             <span class="sr-only">Previous</span>
             <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path d="M15 19l-7-7 7-7"/>
@@ -103,7 +103,7 @@
           <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-800 bg-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none md:inline-flex">
             1
           </a>
-          <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold bg-gradient-to-r from-purple-500 to-indigo-500 text-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none">
+          <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold bg-gradient-to-r from-purple-800 to-indigo-500 text-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none">
             2
           </a>
           <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-800 bg-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none md:inline-flex">
@@ -121,7 +121,7 @@
           <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-800 bg-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none">
             10
           </a>
-          <a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-white bg-purple-500 hover:bg-purple-600 ring-1 ring-inset ring-purple-500 focus:z-20 focus:outline-none">
+          <a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-white bg-indigo-500 hover:bg-indigo-600 ring-1 ring-inset ring-indigo-500 focus:z-20 focus:outline-none">
             <span class="sr-only">Next</span>
             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 5l7 7-7 7"/>

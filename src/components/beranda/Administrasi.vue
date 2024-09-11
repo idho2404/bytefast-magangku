@@ -1,6 +1,6 @@
 <template>
 <!-- Section Administrasi -->
-  <div class="bg-purple-50 pt-5 pb-0 py-16">
+  <div class="bg-purple-50 dark:bg-[#1A1A1A] dark:text-white pt-5 pb-0 py-16">
     <div class="container mx-auto px-12 py-20 lg:py-10">
       <h2 class="text-center text-3xl font-bold text-purple-600 mb-12">ADMINISTRASI</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-16">

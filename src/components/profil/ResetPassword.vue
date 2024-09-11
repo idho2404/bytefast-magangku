@@ -1,19 +1,23 @@
 <template>
-  <div class="bg-white rounded-lg shadow-lg p-6">
+  <div class="bg-white dark:bg-black rounded-lg shadow-lg p-6">
     <!-- Profile Info -->
     <div class="flex flex-col md:flex-row items-center mb-8 justify-center mt-12">
-      <div class="w-24 h-24 md:w-36 md:h-36 bg-gray-200 rounded-full mb-4 md:mb-0 md:mr-6"></div>
+      <img 
+          src="../../assets/image/foto.png" 
+          alt="Profile Picture" 
+          class="w-24 h-24 md:w-36 md:h-36 bg-gray-200 rounded-full object-cover mb-4 md:mb-0 md:mr-6"
+        />
       <div class="text-center md:text-left">
-        <h3 class="text-lg md:text-xl font-semibold text-black">Akma Batrisyia Jazima</h3>
-        <p class="text-gray-700">222111871</p>
-        <p class="text-gray-500">D4 Komputasi Statistik</p>
+        <h3 class="text-lg md:text-xl font-semibold text-black dark:text-white">Akma Batrisyia Jazima</h3>
+        <p class="text-gray-700 dark:text-white">222111871</p>
+        <p class="text-gray-500 dark:text-white">D4 Komputasi Statistik</p>
       </div>
     </div>
 
     <!-- Password Reset Form -->
     <form @submit.prevent="handleSubmit" class="w-full md:w-1/2 mx-auto mt-10 md:mt-20">
       <div class="mb-4">
-        <label class="block text-gray-700">Password lama</label>
+        <label class="block text-gray-700 dark:text-white">Password lama</label>
         <input 
           type="password"
           v-model="oldPassword" 
@@ -24,7 +28,7 @@
       </div>
       
       <div class="mb-4">
-        <label class="block text-gray-700">Password baru</label>
+        <label class="block text-gray-700 dark:text-white">Password baru</label>
         <input 
           type="password"
           v-model="newPassword" 
@@ -35,7 +39,7 @@
       </div>
       
       <div class="mb-4">
-        <label class="block text-gray-700">Konfirmasi password baru</label>
+        <label class="block text-gray-700 dark:text-white">Konfirmasi password baru</label>
         <input 
           type="password"
           v-model="confirmPassword" 

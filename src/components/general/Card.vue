@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white rounded-lg shadow-lg p-6 flex items-start space-x-4">
+  <div class="bg-white dark:bg-purple-100 dark:text-white rounded-lg shadow-lg p-6 flex items-start space-x-4">
     <div class="flex-shrink-0">
       <slot name="icon"></slot>
     </div>

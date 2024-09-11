@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#512E91] text-white py-8 px-12 py-20 lg:py-10">
+  <footer class="bg-[#512E91] dark:bg-black text-white py-8 px-12 py-20 lg:py-10">
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-start px-1">
       <!-- Left Section: Logo and Contact Info -->
       <div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-4 space-y-4 md:space-y-0 mb-6 md:mb-0">

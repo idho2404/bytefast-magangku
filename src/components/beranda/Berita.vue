@@ -1,6 +1,6 @@
 <template>
   <!-- Section Berita -->
-  <div class="bg-white pt-5 pb-0 py-16">
+  <div class="bg-white dark:bg-black dark:text-white pt-5 pb-0 py-16">
     <div class="relative container mx-auto px-12 py-20 lg:py-10">
       <!-- Judul Utama -->
       <h2 class="text-center text-3xl font-bold text-purple-600 mb-8">BERITA TERBARU</h2>

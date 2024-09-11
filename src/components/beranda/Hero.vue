@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col lg:flex-row items-center justify-center lg:justify-between px-12 py-20 lg:py-10 w-full min-h-screen">
+    <div class="flex flex-col dark:bg-black dark:text-white lg:flex-row items-center justify-center lg:justify-between px-12 py-20 lg:py-10 w-full min-h-screen">
     <!-- Teks di sebelah kiri -->
     <div class="lg:w-1/2 text-center lg:text-left">
       <h1 class="text-4xl lg:text-5xl font-bold text-purple-600">INTERNSHIP PROGRAM BY LINK</h1>

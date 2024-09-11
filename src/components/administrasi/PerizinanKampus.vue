@@ -1,50 +1,34 @@
 <template>
   <div class="p-6">
     <!-- Header -->
-    <div class="flex justify-between items-center mb-4 border-b border-gray-300 pb-5">
-      <h2 class="text-2xl text-black font-semibold">Perizinan Kampus</h2>
-      <button @click="showModal = true" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Ajukan Izin</button>
+    <div class="justify-between items-center mb-4 pb-5 text-center">
+      <h2 class="text-2xl text-indigo-800 font-bold text-center dark:text-white">PERIZINAN KAMPUS</h2>
     </div>
 
-    <!-- Modal Ajukan Izin -->
-    <div v-if="showModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-      <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h3 class="text-lg font-semibold mb-4">Ajukan Izin</h3>
-        <form @submit.prevent="submitIzin">
-          <div class="mb-4">
-            <label for="jenisIzin" class="block text-sm font-medium text-gray-700">Jenis Izin</label>
-            <select v-model="izin.jenisIzin" id="jenisIzin" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-              <option value="Sakit">Sakit</option>
-              <option value="Keluarga">Keluarga</option>
-              <option value="Lainnya">Lainnya</option>
-            </select>
-          </div>
-          <div class="mb-4">
-            <label for="tanggalMulai" class="block text-sm font-medium text-gray-700">Tanggal Mulai</label>
-            <input v-model="izin.tanggalMulai" type="date" id="tanggalMulai" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-          </div>
-          <div class="mb-4">
-            <label for="tanggalSelesai" class="block text-sm font-medium text-gray-700">Tanggal Selesai</label>
-            <input v-model="izin.tanggalSelesai" type="date" id="tanggalSelesai" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required />
-          </div>
-          <div class="mb-4">
-            <label for="alasan" class="block text-sm font-medium text-gray-700">Alasan Izin</label>
-            <textarea v-model="izin.alasan" id="alasan" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" rows="3" required></textarea>
-          </div>
-          <div class="flex justify-end">
-            <button @click="showModal = false" type="button" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600 mr-2">Batal</button>
-            <button type="submit" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Ajukan</button>
-          </div>
-        </form>
+    <!-- Search, Filter, and Table Combined -->
+    <div class="bg-white dark:bg-black p-6 rounded-lg shadow-md mb-6 text-white">
+      <div class="flex flex-col sm:flex-row justify-between items-center mb-4 space-y-4 sm:space-y-0">
+        <input
+          type="text"
+          v-model="searchQuery"
+          placeholder="Cari izin..."
+          class="border border-indigo-300 bg-indigo-600 placeholder-white rounded px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 w-full sm:w-1/2"
+        />
+        <select
+          v-model="filterStatus"
+          class="border border-indigo-300 bg-indigo-600 rounded px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 w-full sm:w-1/4"
+        >
+          <option value="">Semua Status</option>
+          <option value="Disetujui">Disetujui</option>
+          <option value="Menunggu">Menunggu</option>
+          <option value="Ditolak">Ditolak</option>
+        </select>
       </div>
-    </div>
 
-    <!-- Daftar Izin yang Diajukan -->
-    <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md mb-6 text-white">
-      <h3 class="text-lg font-medium">Daftar Izin yang Diajukan</h3>
-      <table class="w-full mt-4 text-left table-auto text-white">
+      <h3 class="text-lg font-medium text-center text-indigo-600">Daftar Izin yang Diajukan</h3>
+      <table class="w-full mt-4 text-left table-auto text-purple-800">
         <thead>
-          <tr class="bg-purple-600 text-white uppercase text-xs leading-normal">
+          <tr class="bg-indigo-600 text-white text-center uppercase text-xs leading-normal">
             <th class="py-2 px-3">No.</th>
             <th class="py-2 px-3">Jenis Izin</th>
             <th class="py-2 px-3">Tanggal Mulai</th>
@@ -52,78 +36,72 @@
             <th class="py-2 px-3">Alasan</th>
             <th class="py-2 px-3">Lampiran</th>
             <th class="py-2 px-3">Status</th>
+            <th class="py-2 px-3 text-center">Aksi</th>
           </tr>
         </thead>
-        <tbody class="text-xs font-light">
-          <tr v-for="(item, index) in izinList" :key="index" class="border-b border-purple-400 hover:bg-purple-600">
-            <td class="py-1 px-2">{{ index + 1 }}.</td>
-            <td class="py-1 px-2">{{ item.jenisIzin }}</td>
-            <td class="py-1 px-2">{{ item.tanggalMulai }}</td>
-            <td class="py-1 px-2">{{ item.tanggalSelesai }}</td>
-            <td class="py-1 px-2">{{ item.alasan }}</td>
-            <td class="py-1 px-2">
-              <a :href="item.lampiran" target="_blank" class="text-blue-200 hover:underline">Lihat Lampiran</a>
+        <tbody class="text-xs dark:bg-white">
+          <tr
+            v-for="(item, index) in filteredIzinList"
+            :key="index"
+            class="border-b border-purple-100 hover:bg-purple-100"
+          >
+            <td class="py-2 px-2 text-center">{{ index + 1 }}.</td>
+            <td class="py-2 px-2 text-center">{{ item.jenisIzin }}</td>
+            <td class="py-2 px-2 text-center">{{ item.tanggalMulai }}</td>
+            <td class="py-2 px-2 text-center">{{ item.tanggalSelesai }}</td>
+            <td class="py-2 px-2 text-center">{{ item.alasan }}</td>
+            <td class="py-2 px-2 text-center">
+              <a :href="item.lampiran" target="_blank" class="text-blue-500 hover:underline">Lihat Lampiran</a>
             </td>
-            <td :class="getStatusClass(item.status)" class="py-1 px-2 font-semibold">{{ item.status }}</td>
+            <td :class="getStatusClass(item.status)" class="py-1 px-2 font-semibold text-center">
+              {{ item.status }}
+            </td>
+            <td class="py-2 px-2 text-center">
+              <button class="text-sm text-white bg-purple-600 px-2 py-1 rounded hover:bg-purple-700 mr-2">
+                Edit
+              </button>
+              <button class="text-sm text-white bg-red-600 px-2 py-1 rounded hover:bg-red-700">
+                Hapus
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <!-- Summary and Additional Features -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-      <!-- Status Izin Chart -->
-      <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md text-white">
-        <h3 class="text-lg font-medium">Status Izin</h3>
-        <div class="mt-4">
-          <canvas id="izinChart"></canvas>
+    <!-- Summary Cards and Chart Combined in Flex Layout -->
+    <div class="flex flex-col md:flex-row gap-6 mb-6">
+      
+      <div class="flex flex-row gap-4 md:w-1/3 h-full justify-center items-center flex-wrap">
+        <div class="bg-purple-100 p-4 rounded-lg shadow-md text-center">
+          <h4 class="text-xl font-semibold text-purple-800">Total Izin</h4>
+          <p class="text-3xl font-bold text-purple-700">{{ izinList.length }}</p>
+        </div>
+        <div class="bg-green-100 p-4 rounded-lg shadow-md text-center">
+          <h4 class="text-xl font-semibold text-green-800">Disetujui</h4>
+          <p class="text-3xl font-bold text-green-700">{{ izinList.filter(i => i.status === 'Disetujui').length }}</p>
+        </div>
+        <div class="bg-red-100 p-4 rounded-lg shadow-md text-center">
+          <h4 class="text-xl font-semibold text-red-800">Ditolak</h4>
+          <p class="text-3xl font-bold text-red-700">{{ izinList.filter(i => i.status === 'Ditolak').length }}</p>
         </div>
       </div>
-
-      <!-- Statistics -->
-      <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md text-white">
-        <h3 class="text-lg font-medium">Statistik Izin</h3>
-        <div class="mt-4">
-          <ul class="space-y-3 text-sm">
-            <li><strong>Total Izin Diajukan:</strong> {{ izinList.length }}</li>
-            <li><strong>Total Izin Disetujui:</strong> {{ izinList.filter(i => i.status === 'Disetujui').length }}</li>
-            <li><strong>Total Izin Ditolak:</strong> {{ izinList.filter(i => i.status === 'Ditolak').length }}</li>
-            <li><strong>Total Izin Menunggu:</strong> {{ izinList.filter(i => i.status === 'Menunggu').length }}</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Recent Notifications -->
-      <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md text-white">
-        <h3 class="text-lg font-medium">Notifikasi Terbaru</h3>
-        <div class="mt-4">
-          <ul class="space-y-3 text-sm">
-            <li v-for="(notif, index) in notifications" :key="index" class="border-b border-purple-300 pb-2">
-              <p>{{ notif.message }}</p>
-              <p class="text-xs text-gray-200">{{ notif.date }}</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Feedback Section -->
-    <div class="bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-md mb-6 text-white">
-      <h3 class="text-lg font-medium">Beri Umpan Balik</h3>
-      <textarea v-model="feedback" class="mt-4 w-full border border-purple-400 rounded-md p-2 text-sm bg-purple-600 placeholder-white" rows="4" placeholder="Beri umpan balik atau komentar..."></textarea>
-      <div class="flex justify-end mt-4">
-        <button @click="submitFeedback" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Kirim Umpan Balik</button>
+      
+      <!-- Chart Column -->
+      <div class="md:w-2/3 p-6 bg-white rounded-lg shadow-md">
+        <canvas id="izinChart" class="h-48"></canvas>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { Chart } from 'chart.js/auto';
 
 const showModal = ref(false);
-const feedback = ref('');
+const searchQuery = ref('');
+const filterStatus = ref('');
 const izin = ref({
   jenisIzin: 'Sakit',
   tanggalMulai: '',
@@ -138,10 +116,13 @@ const izinList = ref([
   { jenisIzin: 'Lainnya', tanggalMulai: '2024-08-15', tanggalSelesai: '2024-08-20', alasan: 'Liburan', lampiran: '#', status: 'Ditolak' },
 ]);
 
-const notifications = ref([
-  { message: 'Izin Anda pada tanggal 10/08/2024 telah disetujui.', date: '20/08/2024' },
-  { message: 'Izin Anda pada tanggal 15/08/2024 telah ditolak.', date: '18/08/2024' },
-]);
+const filteredIzinList = computed(() => {
+  return izinList.value.filter(item => {
+    const matchesSearch = item.jenisIzin.toLowerCase().includes(searchQuery.value.toLowerCase()) || item.alasan.toLowerCase().includes(searchQuery.value.toLowerCase());
+    const matchesStatus = filterStatus.value ? item.status === filterStatus.value : true;
+    return matchesSearch && matchesStatus;
+  });
+});
 
 const submitIzin = () => {
   izinList.value.push({
@@ -157,12 +138,7 @@ const submitIzin = () => {
 };
 
 const getStatusClass = (status) => {
-  return status === 'Disetujui' ? 'text-green-300' : status === 'Ditolak' ? 'text-red-300' : 'text-yellow-300';
-};
-
-const submitFeedback = () => {
-  alert('Umpan balik berhasil dikirim!');
-  feedback.value = '';
+  return status === 'Disetujui' ? 'text-green-500' : status === 'Ditolak' ? 'text-red-500' : 'text-yellow-500';
 };
 
 onMounted(() => {
@@ -172,9 +148,11 @@ onMounted(() => {
     data: {
       labels: ['Disetujui', 'Menunggu', 'Ditolak'],
       datasets: [{
-        data: [izinList.value.filter(i => i.status === 'Disetujui').length,
-               izinList.value.filter(i => i.status === 'Menunggu').length,
-               izinList.value.filter(i => i.status === 'Ditolak').length],
+        data: [
+          izinList.value.filter(i => i.status === 'Disetujui').length,
+          izinList.value.filter(i => i.status === 'Menunggu').length,
+          izinList.value.filter(i => i.status === 'Ditolak').length,
+        ],
         backgroundColor: ['#66BB6A', '#FFD54F', '#E57373'],
         hoverBackgroundColor: ['#81C784', '#FFE082', '#EF9A9A']
       }]
@@ -188,7 +166,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Gaya responsif untuk memastikan tampilan tetap rapi di berbagai perangkat */
 @media (min-width: 640px) {
   .flex-col {
     flex-direction: column;
@@ -202,6 +179,25 @@ onMounted(() => {
 }
 
 #izinChart {
-  height: 250px; /* Tinggi untuk chart */
+  height: 250px;
+}
+
+/* Custom scrollbar styles */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #e0d7ff;
+  border-radius: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #5b21b6;
 }
 </style>

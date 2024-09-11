@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-lg shadow-md mb-2">
+  <div class="rounded-lg dark:bg-purple-100 dark:text-white shadow-md mb-2">
     <img :src="imageSrc" alt="News Image" class="w-full h-48 object-cover">
     <div class="p-4 relative z-10">
       <h3 class="text-lg text-black font-semibold mb-2">{{ title }}</h3>

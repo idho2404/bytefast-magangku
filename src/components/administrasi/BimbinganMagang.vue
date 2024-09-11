@@ -1,29 +1,40 @@
 <template>
   <div class="p-6">
     <!-- Header -->
-    <div class="flex justify-between items-center mb-6">
-      <h2 class="text-2xl text-purple-700 font-semibold">Bimbingan Magang</h2>
+    <div class="flex justify-center items-center mb-6 text-center">
+      <h2 class="text-2xl text-indigo-700 dark:text-white font-bold">BIMBINGAN MAGANG</h2>
     </div>
 
     <!-- Profil Dosen -->
-    <div class="bg-white p-6 rounded-lg border border-[5px] border-purple 800 mb-6">
-      <h3 class="text-lg font-medium text-purple-800">Profil Dosen</h3>
-      <div class="mt-4 bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-lg text-gray-800">
-        <p><strong>Nama:</strong> Dr. John Doe</p>
-        <p><strong>Email:</strong> john.doe@university.edu</p>
-        <p><strong>Jam Kerja:</strong> Senin-Jumat, 14:00 - 16:00</p>
-        <p><strong>Bidang Keahlian:</strong> Pengembangan Web, Manajemen Proyek</p>
-        <p><strong>LinkedIn:</strong> <a href="#" class="text-blue-500 hover:underline">linkedin.com/in/johndoe</a></p>
+    <div class="bg-white dark:bg-black dark:text-white p-6 rounded-lg border border-[5px] border-indigo-500 mb-6 flex flex-col md:flex-row items-center space-y-4 md:space-x-10 md:space-y-0">
+      <!-- Foto dan QR Kontak -->
+      <div class="flex flex-col items-center space-y-4">
+        <!-- Foto Dosen -->
+        <img src="../../assets/image/foto.png" alt="Foto Dosen" class="rounded-full w-32 h-32 object-cover ring-4 ring-indigo-500">
+        
+      </div>
+      
+      <!-- Deskripsi Dosen -->
+      <div class="flex-grow text-center md:text-left">
+        <h3 class="text-2xl font-medium text-indigo-800 dark:text-white text-center">Profil Dosen</h3>
+        <div class="bg-white dark:bg-black p-4 rounded-lg text-gray-800 dark:text-white">
+          <p><strong>Nama:</strong> Dr. John Doe</p>
+          <p><strong>Email:</strong> john.doe@university.edu</p>
+          <p><strong>Jam Kerja:</strong> Senin-Jumat, 14:00 - 16:00</p>
+          <p><strong>Bidang Keahlian:</strong> Pengembangan Web, Manajemen Proyek</p>
+          <p><strong>LinkedIn:</strong> <a href="#" class="text-blue-500 hover:underline">linkedin.com/in/johndoe</a></p>
+        </div>
       </div>
     </div>
+
 
     <!-- Jadwal dan Pengingat -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
       <!-- Jadwal Pertemuan -->
-      <div class="bg-gradient-to-r from-purple-800 to-blue-800 p-6 rounded-lg shadow-md  text-white">
+      <div class="bg-indigo-600 p-2 pt-4 rounded-lg shadow-md text-white">
         <h3 class="text-lg text-center text-white font-medium">Jadwal Pertemuan</h3>
         <p class="mt-4 text-white text-center">Jadwal Pertemuan dengan Dosen yang telah disetujui</p>
-        <div class="mt-4 bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-lg text-gray-800">
+        <div class="mt-4 bg-white dark:bg-black dark:text-white p-4 rounded-lg text-gray-800 dark:text-white">
           <!-- Calendar placeholder -->
           <div class="calendar-container">
             <div class="calendar">
@@ -89,17 +100,17 @@
       </div>
 
       <!-- Pengaturan Waktu Konsultasi -->
-      <div class="bg-gradient-to-r from-purple-800 to-blue-800 p-6 rounded-lg shadow-md text-white">
+      <div class="bg-indigo-600 p-2 pt-4 rounded-lg shadow-md text-white">
         <h3 class="text-lg font-medium text-center text-white">Pengaturan Waktu Konsultasi</h3>
         <p class="mt-4 text-center text-white">Atur waktu konsultasi. Pilih slot waktu yang tersedia.</p>
-        <div class="mt-4 bg-gradient-to-r from-purple-200 to-blue-200 p-4 rounded-lg text-gray-800">
+        <div class="mt-4 bg-white dark:bg-black dark:text-white p-4 rounded-lg text-gray-800 ">
           <form>
             <div class="mb-4">
-              <label for="consultation-date" class="block text-sm font-medium text-gray-700">Tanggal Konsultasi</label>
+              <label for="consultation-date" class="block text-sm font-medium text-gray-700 dark:text-white">Tanggal Konsultasi</label>
               <input type="date" id="consultation-date" class="mt-1 bg-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm">
             </div>
             <div class="mb-4">
-              <label for="consultation-time" class="block text-sm font-medium text-gray-700">Pilih Waktu</label>
+              <label for="consultation-time" class="block text-sm font-medium text-gray-700 dark:text-white">Pilih Waktu</label>
               <select id="consultation-time" class="mt-1 bg-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm">
                 <option value="14:00">14:00 - 14:30</option>
                 <option value="14:30">14:30 - 15:00</option>
@@ -108,10 +119,10 @@
               </select>
             </div>
             <div class="mb-4">
-              <label for="activity-name" class="block text-sm font-medium text-gray-700">Nama Kegiatan</label>
+              <label for="activity-name" class="block text-sm font-medium text-gray-700 dark:text-white">Nama Kegiatan</label>
               <input type="text" id="activity-name" class="mt-1 bg-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" placeholder="Masukkan nama kegiatan">
             </div>
-            <div class="text-center"><button type="submit" class="bg-gradient-to-r from-purple-800 to-blue-800 text-white px-4 py-2 rounded-lg hover:bg-purple-600">Ajukan</button></div>
+            <div class="text-center"><button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500 hover:border-none">Ajukan</button></div>
           </form>
         </div>
       </div>
@@ -120,44 +131,44 @@
     <!-- Grafik dan Statistik -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
       <!-- Grafik Progress -->
-      <div class="bg-white border border-[5px] border-purple-800 p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-center text-purple-800">Grafik Progress Mahasiswa</h3>
-        <div class="mt-4 bg-white p-4 rounded-lg text-gray-800">
+      <div class="bg-white border border-[5px] border-indigo-600 p-6 rounded-lg shadow-md dark:bg-black dark:text-white">
+        <h3 class="text-lg font-medium text-center text-purple-800 dark:text-white">Grafik Progress Mahasiswa</h3>
+        <div class="mt-4 bg-white p-4 rounded-lg text-gray-800 dark:text-white dark:bg-black">
           <canvas id="progressChart" class="h-48"></canvas>
         </div>
       </div>
 
       <!-- Riwayat Bimbingan -->
-      <div class="bg-white border border-[5px] border-purple-800 p-6 rounded-lg shadow-md">
-        <h3 class="text-lg font-medium text-purple-800 text-center">Riwayat Bimbingan</h3>
-        <div class="mt-4 p-4 rounded-md text-gray-800 overflow-y-auto max-h-80">
+      <div class="bg-white dark:bg-black dark:text-white border border-[5px] border-indigo-600 p-6 rounded-lg shadow-md">
+        <h3 class="text-lg font-medium text-purple-800 dark:text-white text-center">Riwayat Bimbingan</h3>
+        <div class="mt-4 p-4 rounded-md text-gray-800 dark:text-white overflow-y-auto max-h-80">
           <ul class="space-y-3">
             <li class="flex justify-between">
               <div class="border-b-2 pb-2">
-                <p class="font-semibold text-purple-700">Pertemuan 1:</p>
+                <p class="font-semibold text-purple-700 dark:text-white">Pertemuan 1:</p>
                 <p>Diskusi pembahasan proposal proyek dan menentukan timeline kerja.</p>
-                <p class="text-sm text-gray-600">Tanggal: 01/09/2024</p>
+                <p class="text-sm text-gray-600 dark:text-gray-200">Tanggal: 01/09/2024</p>
               </div>
             </li>
             <li class="flex justify-between">
               <div class="border-b-2 pb-2">
-                <p class="font-semibold text-purple-700">Pertemuan 2:</p>
+                <p class="font-semibold text-purple-700 dark:text-white">Pertemuan 2:</p>
                 <p>Review kemajuan proyek dan revisi bab 2 laporan magang.</p>
-                <p class="text-sm text-gray-600">Tanggal: 08/09/2024</p>
+                <p class="text-sm text-gray-600 dark:text-gray-200">Tanggal: 08/09/2024</p>
               </div>
             </li>
             <li class="flex justify-between">
               <div class="border-b-2 pb-2">
-                <p class="font-semibold text-purple-700">Pertemuan 3:</p>
+                <p class="font-semibold text-purple-700 dark:text-white">Pertemuan 3:</p>
                 <p>Penilaian awal hasil kerja dan masukan perbaikan.</p>
-                <p class="text-sm text-gray-600">Tanggal: 15/09/2024</p>
+                <p class="text-sm text-gray-600 dark:text-gray-200">Tanggal: 15/09/2024</p>
               </div>
             </li>
             <li class="flex justify-between">
               <div class="border-b-2 pb-2">
-                <p class="font-semibold text-purple-700">Pertemuan 4:</p>
+                <p class="font-semibold text-purple-700 dark:text-white">Pertemuan 4:</p>
                 <p>Evaluasi keseluruhan progress dan persiapan presentasi akhir.</p>
-                <p class="text-sm text-gray-600">Tanggal: 22/09/2024</p>
+                <p class="text-sm text-gray-600 dark:text-gray-200">Tanggal: 22/09/2024</p>
               </div>
             </li>
           </ul>
@@ -166,13 +177,11 @@
     </div> 
 
     <!-- Daftar Tugas -->
-  <div class="bg-gradient-to-r from-purple-800 to-blue-800 p-6 rounded-lg shadow-md text-white">
-    <h3 class="text-lg font-medium text-white text-center">Daftar Penugasan</h3>
-    <p class="mt-4 text-center">Daftar tugas yang harus diselesaikan oleh mahasiswa, dengan status pencapaian dan prioritas.</p>
-    <div class="mt-4 p-4 rounded-lg text-gray-800">
-      <table class="w-full text-black rounded-md overflow-hidden">
+    <h3 class="text-lg font-medium text-purple-800 dark:text-white text-center mt-10">Daftar Penugasan</h3>
+    <div class="mt-4 rounded-lg text-gray-800 dark:text-white">
+      <table class="w-full text-black rounded-md overflow-hidden shadow-sm shadow-indigo-800">
         <thead>
-          <tr class="bg-purple-500 text-white">
+          <tr class="bg-indigo-600 text-white">
             <th class="py-2 px-4 text-center">Centang</th>
             <th class="py-2 px-4 text-center">Tugas</th>
             <th class="py-2 px-4 text-center">Status</th>
@@ -223,7 +232,6 @@
         </tbody>
       </table>
     </div>
-  </div>
   </div>
 </template>
 
