@@ -26,47 +26,51 @@
       </div>
 
       <h3 class="text-lg font-medium text-center text-purple-800">Daftar Izin yang Diajukan</h3>
-      <table class="w-full mt-4 text-left table-auto text-purple-800">
-        <thead>
-          <tr class="bg-purple-800 text-white text-center uppercase text-xs leading-normal">
-            <th class="py-2 px-3">No.</th>
-            <th class="py-2 px-3">Jenis Izin</th>
-            <th class="py-2 px-3">Tanggal Mulai</th>
-            <th class="py-2 px-3">Tanggal Selesai</th>
-            <th class="py-2 px-3">Alasan</th>
-            <th class="py-2 px-3">Lampiran</th>
-            <th class="py-2 px-3">Status</th>
-            <th class="py-2 px-3 text-center">Aksi</th>
-          </tr>
-        </thead>
-        <tbody class="text-xs dark:bg-white">
-          <tr
-            v-for="(item, index) in filteredIzinList"
-            :key="index"
-            class="border-b border-purple-100 hover:bg-purple-100"
-          >
-            <td class="py-2 px-2 text-center">{{ index + 1 }}.</td>
-            <td class="py-2 px-2 text-center">{{ item.jenisIzin }}</td>
-            <td class="py-2 px-2 text-center">{{ item.tanggalMulai }}</td>
-            <td class="py-2 px-2 text-center">{{ item.tanggalSelesai }}</td>
-            <td class="py-2 px-2 text-center">{{ item.alasan }}</td>
-            <td class="py-2 px-2 text-center">
-              <a :href="item.lampiran" target="_blank" class="text-blue-500 hover:underline">Lihat Lampiran</a>
-            </td>
-            <td :class="getStatusClass(item.status)" class="py-1 px-2 font-semibold text-center">
-              {{ item.status }}
-            </td>
-            <td class="py-2 px-2 text-center">
-              <button class="text-sm text-white bg-purple-600 px-2 py-1 rounded hover:bg-purple-700 mr-2">
-                Edit
-              </button>
-              <button class="text-sm text-white bg-red-600 px-2 py-1 rounded hover:bg-red-700">
-                Hapus
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+<div class="overflow-x-auto">
+  <table class="w-full mt-4 text-left table-auto text-purple-800">
+    <thead>
+      <tr class="bg-purple-800 text-white text-center uppercase text-xs leading-normal">
+        <th class="py-2 px-3">No.</th>
+        <th class="py-2 px-3">Jenis Izin</th>
+        <th class="py-2 px-3">Tanggal Mulai</th>
+        <th class="py-2 px-3">Tanggal Selesai</th>
+        <th class="py-2 px-3">Alasan</th>
+        <th class="py-2 px-3">Lampiran</th>
+        <th class="py-2 px-3">Status</th>
+        <th class="py-2 px-3 text-center">Aksi</th>
+      </tr>
+    </thead>
+    <tbody class="text-xs dark:bg-white">
+      <tr
+        v-for="(item, index) in filteredIzinList"
+        :key="index"
+        class="border-b border-purple-100 hover:bg-purple-100"
+      >
+        <td class="py-2 px-2 text-center">{{ index + 1 }}.</td>
+        <td class="py-2 px-2 text-center">{{ item.jenisIzin }}</td>
+        <td class="py-2 px-2 text-center">{{ item.tanggalMulai }}</td>
+        <td class="py-2 px-2 text-center">{{ item.tanggalSelesai }}</td>
+        <td class="py-2 px-2 text-center">{{ item.alasan }}</td>
+        <td class="py-2 px-2 text-center">
+          <a :href="item.lampiran" target="_blank" class="text-blue-500 hover:underline">Lihat Lampiran</a>
+        </td>
+        <td :class="getStatusClass(item.status)" class="py-1 px-2 font-semibold text-center">
+          {{ item.status }}
+        </td>
+        <td class="py-2 px-2 text-center">
+          <button class="text-sm text-white bg-purple-600 px-2 py-1 rounded hover:bg-purple-700 mr-2">
+            Edit
+          </button>
+          <button class="text-sm text-white bg-red-600 px-2 py-1 rounded hover:bg-red-700">
+            Hapus
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
     </div>
 
     <!-- Summary Cards and Chart Combined in Flex Layout -->

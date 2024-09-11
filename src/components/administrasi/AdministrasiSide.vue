@@ -1,10 +1,10 @@
 <template>
-  <div class="flex flex-col min-h-screen p-5 border-r-2 dark:bg-black dark:text-white">
+  <div class="flex flex-col min-h-screen p-5 dark:bg-black dark:text-white">
     <!-- Main Content with Sidebar -->
-    <div class="flex flex-col md:flex-row">
+    <div class="flex flex-col md:flex-row w-full">
       <!-- Sidebar -->
       <aside
-        class="w-full md:w-64 bg-purple-700 text-gray-400 p-6 rounded-lg md:fixed md:top-16 md:left-5 md:ml-5 md:mt-5 md:mb-5 shadow-lg flex flex-col justify-between "
+        class="w-full md:w-64 bg-purple-700 text-gray-400 p-6 rounded-lg md:fixed md:top-16 md:left-5 md:ml-5 md:mt-5 md:mb-5 shadow-lg flex flex-col justify-between"
       >
         <div class="p-4">
           <div class="border-b-2 mb-10">
@@ -101,6 +101,7 @@
                   Template
                 </a>
               </li>
+
             </ul>
           </nav>
         </div>
@@ -111,7 +112,7 @@
       </aside>
 
       <!-- Main Content -->
-      <main class="w-full md:w-4/5 bg-none md:ml-72 md:pl-10">
+      <main class="w-full flex-1 bg-none md:ml-72 md:pl-10 overflow-hidden">
         <!-- Component Content -->
         <component :is="componentMap[currentView]" />
       </main>
@@ -145,10 +146,11 @@ const currentView = ref('Presensi');
 </script>
 
 <style scoped>
-/* Optional: Add transitions for hover effects */
-ul[v-show] {
-  transition: all 0.3s ease;
-  overflow: hidden;
+/* Ensuring no overflow */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 aside {

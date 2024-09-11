@@ -177,61 +177,65 @@
     </div> 
 
     <!-- Daftar Tugas -->
-    <h3 class="text-lg font-medium text-purple-800 dark:text-white text-center mt-10">Daftar Penugasan</h3>
-    <div class="mt-4 rounded-lg text-gray-800 dark:text-white">
-      <table class="w-full text-black rounded-md overflow-hidden shadow-sm shadow-purple-800">
-        <thead>
-          <tr class="bg-purple-800 text-white">
-            <th class="py-2 px-4 text-center">Centang</th>
-            <th class="py-2 px-4 text-center">Tugas</th>
-            <th class="py-2 px-4 text-center">Status</th>
-            <th class="py-2 px-4 text-center">Prioritas</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-white hover:bg-gray-100">
-            <td class="py-2 px-4 text-center">
-              <input type="checkbox" checked disabled />
-            </td>
-            <td class="py-2 px-4 line-through text-center">Menyusun Proposal</td>
-            <td class="py-2 px-4 text-center">Selesai</td>
-            <td class="py-2 px-4 text-center">Tinggi</td>
-          </tr>
-          <tr class="bg-white hover:bg-gray-100">
-            <td class="py-2 px-4 text-center">
-              <input type="checkbox" checked disabled />
-            </td>
-            <td class="py-2 px-4 line-through text-center">Mengumpulkan Data</td>
-            <td class="py-2 px-4 text-center">Selesai</td>
-            <td class="py-2 px-4 text-center">Tinggi</td>
-          </tr>
-          <tr class="bg-white hover:bg-gray-100">
-            <td class="py-2 px-4 text-center">
-              <input type="checkbox" />
-            </td>
-            <td class="py-2 px-4 text-center">Merevisi Kode</td>
-            <td class="py-2 px-4 text-center">Proses</td>
-            <td class="py-2 px-4 text-center">Sedang</td>
-          </tr>
-          <tr class="bg-white hover:bg-gray-100">
-            <td class="py-2 px-4 text-center">
-              <input type="checkbox" />
-            </td>
-            <td class="py-2 px-4 text-center">Menulis Laporan Akhir</td>
-            <td class="py-2 px-4 text-center">Belum Mulai</td>
-            <td class="py-2 px-4 text-center">Tinggi</td>
-          </tr>
-          <tr class="bg-white hover:bg-gray-100">
-            <td class="py-2 px-4 text-center">
-              <input type="checkbox" />
-            </td>
-            <td class="py-2 px-4 text-center">Persiapan Presentasi</td>
-            <td class="py-2 px-4 text-center">Belum Mulai</td>
-            <td class="py-2 px-4 text-center">Rendah</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<h3 class="text-lg font-medium text-purple-800 dark:text-white text-center mt-10">Daftar Penugasan</h3>
+<div class="mt-4 rounded-lg text-gray-800 dark:text-white">
+  <!-- Add overflow-x-auto to make the table scrollable on smaller screens -->
+  <div class="overflow-x-auto">
+    <table class="w-full text-black rounded-md overflow-hidden shadow-sm shadow-purple-800 min-w-max">
+      <thead>
+        <tr class="bg-purple-800 text-white">
+          <th class="py-2 px-4 text-center">Centang</th>
+          <th class="py-2 px-4 text-center">Tugas</th>
+          <th class="py-2 px-4 text-center">Status</th>
+          <th class="py-2 px-4 text-center">Prioritas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-white hover:bg-gray-100">
+          <td class="py-2 px-4 text-center">
+            <input type="checkbox" checked disabled />
+          </td>
+          <td class="py-2 px-4 line-through text-center">Menyusun Proposal</td>
+          <td class="py-2 px-4 text-center">Selesai</td>
+          <td class="py-2 px-4 text-center">Tinggi</td>
+        </tr>
+        <tr class="bg-white hover:bg-gray-100">
+          <td class="py-2 px-4 text-center">
+            <input type="checkbox" checked disabled />
+          </td>
+          <td class="py-2 px-4 line-through text-center">Mengumpulkan Data</td>
+          <td class="py-2 px-4 text-center">Selesai</td>
+          <td class="py-2 px-4 text-center">Tinggi</td>
+        </tr>
+        <tr class="bg-white hover:bg-gray-100">
+          <td class="py-2 px-4 text-center">
+            <input type="checkbox" />
+          </td>
+          <td class="py-2 px-4 text-center">Merevisi Kode</td>
+          <td class="py-2 px-4 text-center">Proses</td>
+          <td class="py-2 px-4 text-center">Sedang</td>
+        </tr>
+        <tr class="bg-white hover:bg-gray-100">
+          <td class="py-2 px-4 text-center">
+            <input type="checkbox" />
+          </td>
+          <td class="py-2 px-4 text-center">Menulis Laporan Akhir</td>
+          <td class="py-2 px-4 text-center">Belum Mulai</td>
+          <td class="py-2 px-4 text-center">Tinggi</td>
+        </tr>
+        <tr class="bg-white hover:bg-gray-100">
+          <td class="py-2 px-4 text-center">
+            <input type="checkbox" />
+          </td>
+          <td class="py-2 px-4 text-center">Persiapan Presentasi</td>
+          <td class="py-2 px-4 text-center">Belum Mulai</td>
+          <td class="py-2 px-4 text-center">Rendah</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
   </div>
 </template>
 

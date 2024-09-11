@@ -4,11 +4,11 @@
       <div class="flex justify-between items-center h-16">
         <!-- Logo dan Nama -->
         <div class="flex items-center">
-          <img class="h-12 w-auto" src="../assets/image/image.png" alt="Logo" />
+          <img class="h-12 w-auto ml-0" src="../assets/image/image.png" alt="Logo" />
         </div>
 
         <!-- Menu Navigasi Desktop -->
-        <div class="hidden sm:flex sm:space-x-8">
+        <div class="hidden sm:flex sm:space-x-8 ml-40">
           <router-link to="/" class="border-transparent text-gray-500 dark:text-gray-200 hover:border-gray-300 hover:text-purple-700 dark:hover:text-white inline-flex items-center px-1 pt-1 text-sm font-medium">
             Beranda
           </router-link>
