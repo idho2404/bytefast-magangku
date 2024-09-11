@@ -2,21 +2,21 @@
   <div class="p-6">
     <!-- Header -->
     <div class="flex justify-center items-center mb-6 text-center">
-      <h2 class="text-2xl text-indigo-700 dark:text-white font-bold">BIMBINGAN MAGANG</h2>
+      <h2 class="text-2xl text-purple-800 dark:text-white font-bold">BIMBINGAN MAGANG</h2>
     </div>
 
     <!-- Profil Dosen -->
-    <div class="bg-white dark:bg-black dark:text-white p-6 rounded-lg border border-[5px] border-indigo-500 mb-6 flex flex-col md:flex-row items-center space-y-4 md:space-x-10 md:space-y-0">
+    <div class="bg-white dark:bg-black dark:text-white p-6 rounded-lg border border-[5px] border-purple-800 mb-6 flex flex-col md:flex-row items-center space-y-4 md:space-x-10 md:space-y-0">
       <!-- Foto dan QR Kontak -->
       <div class="flex flex-col items-center space-y-4">
         <!-- Foto Dosen -->
-        <img src="../../assets/image/foto.png" alt="Foto Dosen" class="rounded-full w-32 h-32 object-cover ring-4 ring-indigo-500">
+        <img src="../../assets/image/foto.png" alt="Foto Dosen" class="rounded-full w-32 h-32 object-cover ring-4 ring-purple-800">
         
       </div>
       
       <!-- Deskripsi Dosen -->
       <div class="flex-grow text-center md:text-left">
-        <h3 class="text-2xl font-medium text-indigo-800 dark:text-white text-center">Profil Dosen</h3>
+        <h3 class="text-2xl font-medium text-purple-800 dark:text-white text-center">Profil Dosen</h3>
         <div class="bg-white dark:bg-black p-4 rounded-lg text-gray-800 dark:text-white">
           <p><strong>Nama:</strong> Dr. John Doe</p>
           <p><strong>Email:</strong> john.doe@university.edu</p>
@@ -31,7 +31,7 @@
     <!-- Jadwal dan Pengingat -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
       <!-- Jadwal Pertemuan -->
-      <div class="bg-indigo-600 p-2 pt-4 rounded-lg shadow-md text-white">
+      <div class="bg-purple-800 p-2 pt-4 rounded-lg shadow-md text-white">
         <h3 class="text-lg text-center text-white font-medium">Jadwal Pertemuan</h3>
         <p class="mt-4 text-white text-center">Jadwal Pertemuan dengan Dosen yang telah disetujui</p>
         <div class="mt-4 bg-white dark:bg-black dark:text-white p-4 rounded-lg text-gray-800 dark:text-white">
@@ -60,7 +60,7 @@
                 <div class="text-gray-400">30</div>
                 <div class="text-gray-400">31</div>
                 <div>1</div>
-                <div class="bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full">2</div>
+                <div class="bg-purple-800 text-white rounded-full">2</div>
                 <div>3</div>
                 <div>4</div>
                 <div>5</div>
@@ -79,7 +79,7 @@
                 <div>18</div>
                 <div>19</div>
                 <div>20</div>
-                <div class="bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full">21</div>
+                <div class="bg-purple-800 text-white rounded-full">21</div>
                 <div>22</div>
                 <div>23</div>
                 <div>24</div>
@@ -100,7 +100,7 @@
       </div>
 
       <!-- Pengaturan Waktu Konsultasi -->
-      <div class="bg-indigo-600 p-2 pt-4 rounded-lg shadow-md text-white">
+      <div class="bg-purple-800 p-2 pt-4 rounded-lg shadow-md text-white">
         <h3 class="text-lg font-medium text-center text-white">Pengaturan Waktu Konsultasi</h3>
         <p class="mt-4 text-center text-white">Atur waktu konsultasi. Pilih slot waktu yang tersedia.</p>
         <div class="mt-4 bg-white dark:bg-black dark:text-white p-4 rounded-lg text-gray-800 ">
@@ -122,7 +122,7 @@
               <label for="activity-name" class="block text-sm font-medium text-gray-700 dark:text-white">Nama Kegiatan</label>
               <input type="text" id="activity-name" class="mt-1 bg-white block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" placeholder="Masukkan nama kegiatan">
             </div>
-            <div class="text-center"><button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500 hover:border-none">Ajukan</button></div>
+            <div class="text-center"><button type="submit" class="bg-purple-800 text-white px-4 py-2 rounded-lg hover:bg-purple-800 hover:border-none">Ajukan</button></div>
           </form>
         </div>
       </div>
@@ -131,7 +131,7 @@
     <!-- Grafik dan Statistik -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
       <!-- Grafik Progress -->
-      <div class="bg-white border border-[5px] border-indigo-600 p-6 rounded-lg shadow-md dark:bg-black dark:text-white">
+      <div class="bg-white border border-[5px] border-purple-800 p-6 rounded-lg shadow-md dark:bg-black dark:text-white">
         <h3 class="text-lg font-medium text-center text-purple-800 dark:text-white">Grafik Progress Mahasiswa</h3>
         <div class="mt-4 bg-white p-4 rounded-lg text-gray-800 dark:text-white dark:bg-black">
           <canvas id="progressChart" class="h-48"></canvas>
@@ -139,7 +139,7 @@
       </div>
 
       <!-- Riwayat Bimbingan -->
-      <div class="bg-white dark:bg-black dark:text-white border border-[5px] border-indigo-600 p-6 rounded-lg shadow-md">
+      <div class="bg-white dark:bg-black dark:text-white border border-[5px] border-purple-800 p-6 rounded-lg shadow-md">
         <h3 class="text-lg font-medium text-purple-800 dark:text-white text-center">Riwayat Bimbingan</h3>
         <div class="mt-4 p-4 rounded-md text-gray-800 dark:text-white overflow-y-auto max-h-80">
           <ul class="space-y-3">
@@ -179,9 +179,9 @@
     <!-- Daftar Tugas -->
     <h3 class="text-lg font-medium text-purple-800 dark:text-white text-center mt-10">Daftar Penugasan</h3>
     <div class="mt-4 rounded-lg text-gray-800 dark:text-white">
-      <table class="w-full text-black rounded-md overflow-hidden shadow-sm shadow-indigo-800">
+      <table class="w-full text-black rounded-md overflow-hidden shadow-sm shadow-purple-800">
         <thead>
-          <tr class="bg-indigo-600 text-white">
+          <tr class="bg-purple-800 text-white">
             <th class="py-2 px-4 text-center">Centang</th>
             <th class="py-2 px-4 text-center">Tugas</th>
             <th class="py-2 px-4 text-center">Status</th>

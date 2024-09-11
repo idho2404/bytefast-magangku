@@ -10,7 +10,7 @@
       <!-- Tanggal Pengumpulan Laporan Magang -->
       <div class="mb-4 w-full md:w-[25rem]">
         <label for="submissionDate" class="block text-sm font-medium text-gray-700">Tanggal Pengumpulan</label>
-        <input v-model="submissionDate" type="date" id="submissionDate" class="mt-1 bg-indigo-600 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" />
+        <input v-model="submissionDate" type="date" id="submissionDate" class="mt-1 bg-purple-800 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-purple-500 focus:border-purple-500 sm:text-sm" />
       </div>
 
       <!-- Berkas Laporan Magang -->
@@ -18,9 +18,9 @@
         <label for="reportFile" class="block text-sm font-medium text-gray-700">Berkas Laporan Magang</label>
         <div @dragover.prevent @drop.prevent="handleFileDrop" class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-purple-300 border-dashed rounded-md cursor-pointer" @click="triggerFileInput">
           <div class="space-y-1 text-center">
-            <font-awesome-icon icon="image" class="mx-auto text-9xl text-indigo-500"/>
+            <font-awesome-icon icon="image" class="mx-auto text-9xl text-purple-800"/>
             <div class="flex flex-col text-sm text-gray-600">
-              <label for="file-upload" class="relative cursor-pointer rounded-md font-medium text-purple-600 hover:text-purple-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-purple-500">
+              <label for="file-upload" class="relative cursor-pointer rounded-md font-medium text-purple-800 hover:text-purple-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-purple-500">
                 <span>Tarik File Ke Sini atau Klik Untuk Memilih File</span>
               </label>
               <p class="pl-1">Maksimal File 200 Mb</p>
@@ -34,14 +34,14 @@
       <!-- Upload Progress Bar -->
       <div v-if="uploadProgress > 0 && uploadProgress < 100" class="mb-4">
         <div class="h-2 bg-gray-200 rounded-full">
-          <div class="h-full bg-indigo-500 rounded-full" :style="{ width: uploadProgress + '%' }"></div>
+          <div class="h-full bg-purple-800 rounded-full" :style="{ width: uploadProgress + '%' }"></div>
         </div>
         <p class="text-sm text-gray-600 mt-2">{{ uploadProgress }}% completed</p>
       </div>
 
       <!-- Upload Button -->
       <div class="flex justify-end">
-        <button @click="uploadReport" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600 flex items-center">
+        <button @click="uploadReport" class="bg-purple-800 text-white px-4 py-2 rounded hover:bg-purple-800 flex items-center">
           <font-awesome-icon icon="cloud-upload-alt" class="mr-2" />
           Upload
         </button>

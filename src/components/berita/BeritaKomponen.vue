@@ -70,7 +70,7 @@
               <div class="flex items-center space-x-2 mt-2">
                 <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">{{ news.views }} kali</span>
                 <span
-                  class="bg-indigo-100 text-indigo-800 px-2 py-1 rounded text-xs"
+                  class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs"
                 >
                   {{ news.author }}
                 </span>
@@ -83,7 +83,7 @@
       <div class="flex justify-between items-center mt-10 ">
         <div>
           <label for="rows" class="mr-2 text-sm text-gray-700 dark:text-white">Rows per page:</label>
-          <select id="rows" class="border bg-indigo-500 border-gray-300 rounded px-2 py-1 text-white">
+          <select id="rows" class="border bg-purple-500 border-gray-300 rounded px-2 py-1 text-white">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="25">25</option>
@@ -91,7 +91,7 @@
           </select>
         </div>
         <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-          <a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-white bg-indigo-500 hover:bg-indigo-600 ring-1 ring-inset ring-indigo-500 focus:z-20 focus:outline-none">
+          <a href="#" class="relative inline-flex items-center rounded-l-md px-2 py-2 text-white bg-purple-500 hover:bg-purple-600 ring-1 ring-inset ring-purple-500 focus:z-20 focus:outline-none">
             <span class="sr-only">Previous</span>
             <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path d="M15 19l-7-7 7-7"/>
@@ -100,7 +100,7 @@
           <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-800 bg-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none md:inline-flex">
             1
           </a>
-          <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold bg-gradient-to-r from-purple-800 to-indigo-500 text-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none">
+          <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold bg-purple-800 to-purple-500 text-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none">
             2
           </a>
           <a href="#" class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-800 bg-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none md:inline-flex">
@@ -118,7 +118,7 @@
           <a href="#" class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-800 bg-white ring-1 ring-inset ring-gray-300 hover:bg-gray-100 focus:z-20 focus:outline-none">
             10
           </a>
-          <a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-white bg-indigo-500 hover:bg-indigo-600 ring-1 ring-inset ring-indigo-500 focus:z-20 focus:outline-none">
+          <a href="#" class="relative inline-flex items-center rounded-r-md px-2 py-2 text-white bg-purple-500 hover:bg-purple-600 ring-1 ring-inset ring-purple-500 focus:z-20 focus:outline-none">
             <span class="sr-only">Next</span>
             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path d="M9 5l7 7-7 7"/>

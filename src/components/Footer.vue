@@ -3,7 +3,7 @@
     <div class="container mx-auto flex flex-col md:flex-row justify-between items-start px-1">
       <!-- Left Section: Logo and Contact Info -->
       <div class="flex flex-col md:flex-row items-start space-x-0 md:space-x-4 space-y-4 md:space-y-0 mb-6 md:mb-0">
-        <img src="/src/assets/image/image.png" alt="Logo" class="w-45d h-auto"/>
+        <img src="/src/assets/image/image.png" alt="Logo" class="w-24 h-24 text-color-white"/>
         <div>
           <h3 class="font-bold text-lg">Link Internship</h3>
           <p class="mt-2">

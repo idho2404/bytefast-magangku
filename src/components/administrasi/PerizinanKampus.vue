@@ -2,7 +2,7 @@
   <div class="p-6">
     <!-- Header -->
     <div class="justify-between items-center mb-4 pb-5 text-center">
-      <h2 class="text-2xl text-indigo-800 font-bold text-center dark:text-white">PERIZINAN KAMPUS</h2>
+      <h2 class="text-2xl text-purple-800 font-bold text-center dark:text-white">PERIZINAN KAMPUS</h2>
     </div>
 
     <!-- Search, Filter, and Table Combined -->
@@ -12,11 +12,11 @@
           type="text"
           v-model="searchQuery"
           placeholder="Cari izin..."
-          class="border border-indigo-300 bg-indigo-600 placeholder-white rounded px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 w-full sm:w-1/2"
+          class="border border-purple-800 bg-purple-800 placeholder-white rounded px-3 py-2 focus:outline-none focus:ring-purple-800 focus:border-purple-800 w-full sm:w-1/2"
         />
         <select
           v-model="filterStatus"
-          class="border border-indigo-300 bg-indigo-600 rounded px-3 py-2 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 w-full sm:w-1/4"
+          class="border border-purple-800 bg-purple-800 rounded px-3 py-2 focus:outline-none focus:ring-purple-800 focus:border-purple-800 w-full sm:w-1/4"
         >
           <option value="">Semua Status</option>
           <option value="Disetujui">Disetujui</option>
@@ -25,10 +25,10 @@
         </select>
       </div>
 
-      <h3 class="text-lg font-medium text-center text-indigo-600">Daftar Izin yang Diajukan</h3>
+      <h3 class="text-lg font-medium text-center text-purple-800">Daftar Izin yang Diajukan</h3>
       <table class="w-full mt-4 text-left table-auto text-purple-800">
         <thead>
-          <tr class="bg-indigo-600 text-white text-center uppercase text-xs leading-normal">
+          <tr class="bg-purple-800 text-white text-center uppercase text-xs leading-normal">
             <th class="py-2 px-3">No.</th>
             <th class="py-2 px-3">Jenis Izin</th>
             <th class="py-2 px-3">Tanggal Mulai</th>
@@ -153,8 +153,8 @@ onMounted(() => {
           izinList.value.filter(i => i.status === 'Menunggu').length,
           izinList.value.filter(i => i.status === 'Ditolak').length,
         ],
-        backgroundColor: ['#66BB6A', '#FFD54F', '#E57373'],
-        hoverBackgroundColor: ['#81C784', '#FFE082', '#EF9A9A']
+        backgroundColor: ['#8e24aa', '#ba68c8', '#e57373'],
+        hoverBackgroundColor: ['#66BB6A', '#FFD54F', '#E57373']
       }]
     },
     options: {

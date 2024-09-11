@@ -1,6 +1,6 @@
 <template>
   <!-- Section Portofolio -->
-  <div class="bg-gradient-to-b from-white via-white to-purple-200 dark:bg-gradient-to-b from-black via-gray-700 to-gray-400 pt-0 pb-5 py-16">
+  <div class="bg-gradient-to-b from-white via-white to-purple-200 dark:bg-black pt-0 pb-5 py-16">
     <div class="container mx-auto px-12 py-20 lg:py-10 relative">
       <!-- Judul Utama -->
       <h2 class="text-center text-3xl font-bold text-purple-600 mb-8">PORTOFOLIO</h2>

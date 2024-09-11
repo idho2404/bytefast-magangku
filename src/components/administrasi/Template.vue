@@ -1,7 +1,7 @@
 <template>
   <div class="p-6 flex flex-col">
     <!-- Header -->
-    <h3 class="text-2xl text-black font-bold text-purple-700 mb-6 text-center">DOKUMEN MAGANG</h3>
+    <h3 class="text-2xl text-black font-bold text-purple-800 mb-6 text-center dark:text-white">DOKUMEN MAGANG</h3>
 
     <!-- Search Bar -->
     <div class="relative mb-6 max-w-md mx-auto">
